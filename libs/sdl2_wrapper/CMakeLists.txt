@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
 
-project("sdl2_wrapper" LANGUAGES CXX)
+project( sdl2_wrapper LANGUAGES CXX)
 
 if(UNIX)
 	include(GNUInstallDirs)

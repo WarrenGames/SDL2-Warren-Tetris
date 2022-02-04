@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
 
-project( "game" LANGUAGES CXX)
+project( game LANGUAGES CXX)
 
 if(UNIX)
 	include(GNUInstallDirs)

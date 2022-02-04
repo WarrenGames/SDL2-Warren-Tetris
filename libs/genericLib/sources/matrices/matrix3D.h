@@ -8,9 +8,9 @@
 template <typename T>
 class MatrixTemp3D
 {	
-using iterator               = typename std::vector<T>::iterator;
-using const_iterator         = typename std::vector<T>::const_iterator;
-using reverse_iterator       = typename std::vector<T>::reverse_iterator;
+using iterator			   = typename std::vector<T>::iterator;
+using const_iterator		 = typename std::vector<T>::const_iterator;
+using reverse_iterator	   = typename std::vector<T>::reverse_iterator;
 using const_reverse_iterator = typename std::vector<T>::const_reverse_iterator;
 	
 private:
@@ -44,7 +44,7 @@ public:
 		datas_(width * height * depth)
 	{
 		assert( width > 0 && height > 0 && depth > 0 );
-    }
+	}
 	
 	MatrixTemp3D( const MatrixTemp3D& copy ):
 		width_{ copy.width_ },
@@ -90,36 +90,36 @@ public:
 		datas_.resize(size.width * size.height * size.depth);
 	}
 
-    const T & operator()(std::size_t x, std::size_t y, std::size_t z) const
+	const T & operator()(std::size_t x, std::size_t y, std::size_t z) const
 	{
-        assert(x < width_);
-        assert(y < height_);
-        assert(z < depth_);
-        return datas_[width_ * height_ * z + y * width_ + x];
-    }
+		assert(x < width_);
+		assert(y < height_);
+		assert(z < depth_);
+		return datas_[width_ * height_ * z + y * width_ + x];
+	}
 	
-    T & operator()(std::size_t x, std::size_t y, std::size_t z)
+	T & operator()(std::size_t x, std::size_t y, std::size_t z)
 	{
-        assert(x < width_);
-        assert(y < height_);
-        assert(z < depth_);
-        return datas_[width_*height_*z + y*width_ + x];
-    }
+		assert(x < width_);
+		assert(y < height_);
+		assert(z < depth_);
+		return datas_[width_*height_*z + y*width_ + x];
+	}
 	
 	const T & operator()(const Coord3D& coord) const
 	{
 		assert( coord.width < width_ );
-        assert( coord.height < height_ );
-        assert( coord.depth < depth_ );
-        return datas_[width_*height_*coord.depth + coord.height * width_ + coord.width];
+		assert( coord.height < height_ );
+		assert( coord.depth < depth_ );
+		return datas_[width_*height_*coord.depth + coord.height * width_ + coord.width];
 	}
 	
 	T & operator()( const Coord3D& coord)
 	{
 		assert(coord.width < width_);
-        assert(coord.height < height_);
-        assert(coord.depth < depth_);
-        return datas_[width_*height_*coord.depth + coord.height * width_ + coord.width];
+		assert(coord.height < height_);
+		assert(coord.depth < depth_);
+		return datas_[width_*height_*coord.depth + coord.height * width_ + coord.width];
 	}
 	
 	const T & operator[]( std::size_t index) const
@@ -133,27 +133,27 @@ public:
 		return datas_[index];
 	}
 	
-    void fillMatrix(T typeTemp)
+	void fillMatrix(T typeTemp)
 	{
-        std::fill( datas_.begin(), datas_.end(), typeTemp );
-    }
+		std::fill( datas_.begin(), datas_.end(), typeTemp );
+	}
 	
 	std::size_t size() const
 	{
 		return datas_.size();
 	}
-    std::size_t width() const
+	std::size_t width() const
 	{
-        return width_;
-    }
-    std::size_t height()const 
+		return width_;
+	}
+	std::size_t height()const 
 	{
-        return height_;
-    }
-    std::size_t depth()const
+		return height_;
+	}
+	std::size_t depth()const
 	{
-        return depth_;
-    }
+		return depth_;
+	}
 	
 	bool isInsideBoundaries(std::size_t width, std::size_t height, std::size_t depth) const
 	{
@@ -192,14 +192,14 @@ public:
 	{ 
 		return datas_.begin(); 
 	}
-     
+	 
 	const_iterator begin() const 
 	{ 
 		return datas_.cbegin(); 
 	}
 	
 	reverse_iterator rbegin() 
-    { 
+	{ 
 		return datas_.rbegin(); 
 	}
 	
@@ -208,23 +208,23 @@ public:
 		return datas_.crbegin(); 
 	}
    
-    iterator end() 
-    { 
+	iterator end() 
+	{ 
 		return datas_.end(); 
 	}
   
-    const_iterator end() const 
-    { 
+	const_iterator end() const 
+	{ 
 		return datas_.cend(); 
 	}
    
-    reverse_iterator rend() 
-    { 
+	reverse_iterator rend() 
+	{ 
 		return datas_.rend(); 
 	}
-     
-    const_reverse_iterator rend() const
-    { 
+	 
+	const_reverse_iterator rend() const
+	{ 
 		return datas_.crend(); 
 	}
 };

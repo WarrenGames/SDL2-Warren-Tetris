@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
 
-project("genericLib" LANGUAGES CXX)
+project( genericLib LANGUAGES CXX)
 
 if(UNIX)
 	include(GNUInstallDirs)

@@ -71,5 +71,5 @@ void TextButton::drawButton(sdl2::RendererWindow& rndWnd) const
 
 bool TextButton::buttonClicked() const
 {
-    return clicked;
+	return clicked;
 }

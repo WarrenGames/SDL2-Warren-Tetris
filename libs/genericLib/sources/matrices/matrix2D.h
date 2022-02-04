@@ -8,9 +8,9 @@
 template <typename T>
 class MatrixTemp2D
 {	
-using iterator               = typename std::vector<T>::iterator;
-using const_iterator         = typename std::vector<T>::const_iterator;
-using reverse_iterator       = typename std::vector<T>::reverse_iterator;
+using iterator			   = typename std::vector<T>::iterator;
+using const_iterator		 = typename std::vector<T>::const_iterator;
+using reverse_iterator	   = typename std::vector<T>::reverse_iterator;
 using const_reverse_iterator = typename std::vector<T>::const_reverse_iterator;
 	
 private:
@@ -34,8 +34,8 @@ public:
 		assert( size.width > 0 && size.height > 0 );
 	}
 
-    explicit MatrixTemp2D(std::size_t width, std::size_t height):
-        width_{width},
+	explicit MatrixTemp2D(std::size_t width, std::size_t height):
+		width_{width},
 		height_{height},
 		datas_(width * height)
 	{
@@ -188,12 +188,12 @@ public:
 	{ 
 		return datas_.begin(); 
 	}
-     
+	 
 	const_iterator begin() const
 	{
 		return datas_.cbegin(); 
 	}
-     
+	 
 	iterator end() 
 	{ 
 		return datas_.end(); 
@@ -218,7 +218,7 @@ public:
 	{ 
 		return datas_.rend(); 
 	}
-     
+	 
 	const_reverse_iterator rend() const 
 	{ 
 		return datas_.crend(); 

@@ -8,25 +8,25 @@
 
 SDL_Texture* makeHorizontalGradient(sdl2::RendererWindow& rndWnd, int w, int h, const SDL_Color& startColor, const SDL_Color& endColor)
 {
-    sdl2::SurfacePtr tempSurf{ SDL_CreateRGBSurface(0, w, h, 32, 0, 0, 0, 0) };
+	sdl2::SurfacePtr tempSurf{ SDL_CreateRGBSurface(0, w, h, 32, 0, 0, 0, 0) };
 
-    if( tempSurf )
+	if( tempSurf )
 	{
-        SDL_Rect RectTemp{0, 0, 1, h};
-        for(int i{ 0 } ; i < w ; ++i)
-        {
-            RectTemp.x = i;
-            SDL_FillRect(tempSurf.get(), &RectTemp, SDL_MapRGBA(tempSurf->format,
-                                                                        static_cast<Uint8>((endColor.r - startColor.r) * i / w + startColor.r),
-                                                                        static_cast<Uint8>((endColor.g - startColor.g) * i / w + startColor.g),
-                                                                        static_cast<Uint8>((endColor.b - startColor.b) * i / w + startColor.b),
-                                                                        static_cast<Uint8>((endColor.a - startColor.a) * i / w + startColor.a )) );
-        }
-        return SDL_CreateTextureFromSurface(rndWnd.getRend(), tempSurf.get() );
-    }
-    else{
-        return nullptr;
-    }
+		SDL_Rect RectTemp{0, 0, 1, h};
+		for(int i{ 0 } ; i < w ; ++i)
+		{
+			RectTemp.x = i;
+			SDL_FillRect(tempSurf.get(), &RectTemp, SDL_MapRGBA(tempSurf->format,
+																		static_cast<Uint8>((endColor.r - startColor.r) * i / w + startColor.r),
+																		static_cast<Uint8>((endColor.g - startColor.g) * i / w + startColor.g),
+																		static_cast<Uint8>((endColor.b - startColor.b) * i / w + startColor.b),
+																		static_cast<Uint8>((endColor.a - startColor.a) * i / w + startColor.a )) );
+		}
+		return SDL_CreateTextureFromSurface(rndWnd.getRend(), tempSurf.get() );
+	}
+	else{
+		return nullptr;
+	}
 }
 
 void drawHorizontalGradient(sdl2::SurfacePtr& surf, int startx, int endx, const SDL_Color& startColor, const SDL_Color& endColor)
@@ -50,7 +50,7 @@ void drawHorizontalGradient(sdl2::SurfacePtr& surf, int startx, int endx, const 
 	for(int i{startx} ; i < endx ; ++i)
 	{
 		rect.x = i;
-        SDL_FillRect(surf.get(), &rect, SDL_MapRGBA(surf->format, static_cast<Uint8>(coefDirRed * i + bRed), 
+		SDL_FillRect(surf.get(), &rect, SDL_MapRGBA(surf->format, static_cast<Uint8>(coefDirRed * i + bRed), 
 																	static_cast<Uint8>(coefDirGreen * i + bGreen),
 																	static_cast<Uint8>(coefDirBlue * i + bBlue), 
 																	static_cast<Uint8>(coefDirAlpha * i + bAlpha) ) );

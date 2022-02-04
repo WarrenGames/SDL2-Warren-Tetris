@@ -6,7 +6,7 @@
 struct CaseAnim
 {
 	unsigned animIndex;
-    unsigned currentFrame;
+	unsigned currentFrame;
 	AccurateTimeDelay delay;
 	
 	explicit CaseAnim();

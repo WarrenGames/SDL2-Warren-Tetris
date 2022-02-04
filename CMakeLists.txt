@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0.0)
 
-project(sdl2-warren-tetris LANGUAGES CXX)
+project( sdl2-warren-tetris LANGUAGES CXX )
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR}/cmakeModules)
 
@@ -14,6 +14,6 @@ find_package(SDL2_image REQUIRED)
 find_package(SDL2_ttf REQUIRED)
 find_package(SDL2_mixer REQUIRED)
 
-add_subdirectory(sources/game)
-add_subdirectory(sources/genericLib)
-add_subdirectory(sources/sdl2_wrapper)
+add_subdirectory(executables/game)
+add_subdirectory(libs/genericLib)
+add_subdirectory(libs/sdl2_wrapper)

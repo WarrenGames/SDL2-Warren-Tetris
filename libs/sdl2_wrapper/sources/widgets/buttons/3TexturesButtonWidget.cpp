@@ -12,8 +12,8 @@ T3_Button::T3_Button(AppLogFiles& logs, sdl2::RendererWindow& rndWnd, const std:
 }
 
 T3_Button::T3_Button(AppLogFiles& logs, sdl2::RendererWindow& rndWnd, const sdl2::Font& font, const std::string& text,
-                     const SDL_Color& offText, const SDL_Color& selectText, const SDL_Color& backgrnd, const TexturePosition& pos):
-    buttonState{T3BTN_OFF}
+					 const SDL_Color& offText, const SDL_Color& selectText, const SDL_Color& backgrnd, const TexturePosition& pos):
+	buttonState{T3BTN_OFF}
 {
 	createTexturesWithFont(logs, rndWnd, font, text, offText, selectText, backgrnd, pos);
 }
