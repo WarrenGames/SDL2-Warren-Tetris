@@ -16,13 +16,13 @@ unsigned Piece::getColor() const
 	return colorIndex;
 }
 
-int Piece::width(size_t index) const
+size_t Piece::width(size_t index) const
 {
 	assert( index < pieceMatrices.size() );
 	return static_cast<int>( pieceMatrices[index].width() );
 }
 
-int Piece::height(size_t index) const
+size_t Piece::height(size_t index) const
 {
 	assert( index < pieceMatrices.size() );
 	return static_cast<int>( pieceMatrices[index].height() );

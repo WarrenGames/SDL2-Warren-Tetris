@@ -2,7 +2,7 @@
 #include "matrices/matrix2D.h"
 #include "game/objects/squareData.h"
 
-bool isGameOver(MatrixTemp2D<SquareData>& matrix)
+bool isGameOver(const MatrixTemp2D<SquareData>& matrix)
 {
 	for( size_t height{0} ; height < 3 ; ++height )
 	{
@@ -15,7 +15,7 @@ bool isGameOver(MatrixTemp2D<SquareData>& matrix)
 	return false;
 }
 
-void setGameOverIfMatrixFilled(MatrixTemp2D<SquareData>& matrix, bool& quitGame)
+void setGameOverIfMatrixFilled(const MatrixTemp2D<SquareData>& matrix, bool& quitGame)
 {
 	if( isGameOver(matrix) )
 	{

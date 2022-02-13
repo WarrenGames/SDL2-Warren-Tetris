@@ -1,6 +1,13 @@
 #ifndef PIECE_ROTATION_TEST_H
 #define PIECE_ROTATION_TEST_H
 
+#include <cstdlib>
+
+struct ActivePiece;
+class Piece;
+template<typename>class MatrixTemp2D;
+struct SquareData;
+
 bool pieceCanRotateClockwise(const ActivePiece& activeP, const Piece& piece, const MatrixTemp2D<SquareData>& matrix);
 
 bool pieceCanRotateAntiClockwise(const ActivePiece& activeP, const Piece& piece, const MatrixTemp2D<SquareData>& matrix);

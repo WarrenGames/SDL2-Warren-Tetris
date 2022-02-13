@@ -1,9 +1,9 @@
 #include "logging/logFile.h"
 
 LogFile::LogFile(const std::string& path, const std::string& fileName, const std::string& messagesPrefix):
-	fileFullPath{ path + fileName },
+	fileFullPath{ path + "/" + fileName },
 	prefix{ messagesPrefix },
-	log{ path + fileName }
+	log{ path + "/" + fileName }
 {
 	
 }

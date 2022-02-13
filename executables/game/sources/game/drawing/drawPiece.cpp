@@ -6,13 +6,13 @@
 
 void drawPiece(sdl2::RendererWindow& rndWnd, const ActivePiece& activeP, const Piece& piece, SquaresDrawing& sqrDraw)
 {	
-	for( int sqr_x{0} ; sqr_x < piece.width(activeP.rotateIndex) ; ++sqr_x )
+	for( size_t sqr_x{0} ; sqr_x < piece.width(activeP.rotateIndex) ; ++sqr_x )
 	{
-		for( int sqr_y{0} ; sqr_y < piece.height(activeP.rotateIndex) ; ++sqr_y )
+		for( size_t sqr_y{0} ; sqr_y < piece.height(activeP.rotateIndex) ; ++sqr_y )
 		{
 			if( piece.getPresenceSquare(activeP.rotateIndex, sqr_x, sqr_y) )
 			{
-				sqrDraw.drawSquare(activeP.colorIndex, SQR_SIZE * (activeP.posx + sqr_x) + SQR_SIZE, SQR_SIZE * (activeP.posy + sqr_y), rndWnd);
+				sqrDraw.drawSquare(activeP.colorIndex, SQR_SIZE * (activeP.posx + static_cast<int>(sqr_x) ) + SQR_SIZE, SQR_SIZE * (activeP.posy + static_cast<int>(sqr_y) ), rndWnd);
 			}
 		}
 	}

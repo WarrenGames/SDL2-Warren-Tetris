@@ -4,14 +4,15 @@
 #include "matrices/matrixStructs.h"
 #include <vector>
 #include <cassert>
+#include <utility>
 
 template <typename T>
 class MatrixTemp3D
 {	
-using iterator			   = typename std::vector<T>::iterator;
-using const_iterator		 = typename std::vector<T>::const_iterator;
-using reverse_iterator	   = typename std::vector<T>::reverse_iterator;
-using const_reverse_iterator = typename std::vector<T>::const_reverse_iterator;
+using iterator					= typename std::vector<T>::iterator;
+using const_iterator			= typename std::vector<T>::const_iterator;
+using reverse_iterator			= typename std::vector<T>::reverse_iterator;
+using const_reverse_iterator	= typename std::vector<T>::const_reverse_iterator;
 	
 private:
 	size_t width_;
@@ -46,39 +47,25 @@ public:
 		assert( width > 0 && height > 0 && depth > 0 );
 	}
 	
-	MatrixTemp3D( const MatrixTemp3D& copy ):
-		width_{ copy.width_ },
-		height_{ copy.height_ },
-		depth_{ copy.depth_ },
-		datas_{ copy.datas_ }
-	{
-			
-	}
+	MatrixTemp3D( const MatrixTemp3D& ) = default;
 	
-	MatrixTemp3D& operator= ( const MatrixTemp3D& copy )
-	{
-		width_ = copy.width_;
-		height_ = copy.height_;
-		depth_ = copy.depth_;
-		datas_ = copy.datas_;
-		return *this;	
-	}
+	MatrixTemp3D& operator= ( const MatrixTemp3D& ) = default;
 	
-	MatrixTemp3D( MatrixTemp3D&& toMove ):
-		width_{ toMove.width_ },
-		height_{ toMove.height_ },
-		depth_{ toMove.depth_ },
-		datas_{ std::move( toMove.datas_) }
+	MatrixTemp3D( MatrixTemp3D&& toMove) noexcept:
+		width_{ std::exchange( toMove.width_, 0 ) },
+		height_{ std::exchange( toMove.height_, 0 ) },
+		depth_{ std::exchange( toMove.depth_, 0 ) },
+		datas_{ std::move( toMove.datas_ ) }
 	{
-	
+		
 	}
 
-	MatrixTemp3D& operator= ( MatrixTemp3D&& toMove )
+	MatrixTemp3D& operator= ( MatrixTemp3D&& toMove ) noexcept
 	{
-		width_ = toMove.width_;
-		height_ = toMove.height_;
-		depth_ = toMove.depth_;
-		datas_ = toMove.datas_;
+		width_ = std::exchange( toMove.width_, 0 );
+		height_ = std::exchange( toMove.height_, 0 );
+		depth_ = std::exchange( toMove.depth_, 0 );
+		datas_ = std::move( toMove.datas_ );
 		return *this;
 	}
 	
@@ -133,7 +120,7 @@ public:
 		return datas_[index];
 	}
 	
-	void fillMatrix(T typeTemp)
+	void fillMatrix(const T& typeTemp)
 	{
 		std::fill( datas_.begin(), datas_.end(), typeTemp );
 	}
@@ -178,7 +165,7 @@ public:
 			&& static_cast<std::size_t>(depth) < depth_;
 	}
 	
-	Coord3D getCoordSize()
+	Coord3D getCoordSize() const
 	{
 		return Coord3D{width_, height_, depth_};
 	}
@@ -187,7 +174,7 @@ public:
 	{
 		datas_.clear();
 	}
-	
+
 	iterator begin() 
 	{ 
 		return datas_.begin(); 

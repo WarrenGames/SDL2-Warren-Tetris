@@ -58,27 +58,6 @@ void Matrix2DTexturesDrawing::drawToCenter(sdl2::RendererWindow& rndWnd, unsigne
 	sprites(width, height).drawToCenter(rndWnd, xpos, ypos);
 }
 
-std::vector< sdl2::Sprite >::const_iterator Matrix2DTexturesDrawing::begin() const
-{
-	return sprites.begin();
-}
-
-std::vector< sdl2::Sprite >::const_iterator Matrix2DTexturesDrawing::end() const
-{
-	return sprites.end();
-}
-
-std::vector< sdl2::Sprite >::iterator Matrix2DTexturesDrawing::begin()
-{
-	return sprites.begin();
-}
-
-std::vector< sdl2::Sprite >::iterator Matrix2DTexturesDrawing::end()
-{
-	return sprites.end();
-}
-	
-
 sdl2::Sprite& Matrix2DTexturesDrawing::operator() ( const Coord2D& coords)
 {
 	return sprites(coords);

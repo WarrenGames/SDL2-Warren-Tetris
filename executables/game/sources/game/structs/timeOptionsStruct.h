@@ -7,11 +7,11 @@ struct TimeOptions
 {
 	AccurateTimeDelay timePeriod;
 	double fallDelay;
-	double pieceFallTimeMin;
-	double pieceFallTimeMax;
-	double pieceSpeedIncr;
-	double pieceFallTotalTime;
-	double pieceFallChangeDelay;
+	unsigned pieceFallTimeMin;
+	unsigned pieceFallTimeMax;
+	unsigned pieceSpeedIncr;
+	unsigned pieceFallTotalTime;
+	unsigned pieceFallChangeDelay;
 	
 	TimeOptions(double delay);
 	

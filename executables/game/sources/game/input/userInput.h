@@ -14,8 +14,8 @@ private:
 	std::array<bool, KEY::INP_MAX> keysStates;
 	bool escapeState;
 	bool closeWindow;
-	Offset mousePosition;
 	bool leftMouseButton;
+	Offset mousePosition;
 	SDL_Event event;
 	
 public:

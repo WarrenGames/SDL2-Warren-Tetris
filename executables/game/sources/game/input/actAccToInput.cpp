@@ -1,9 +1,8 @@
-#include <array>
+#include "game/input/actAccToInput.h"
 #include "game/objects/globalGameObject.h"
 #include "game/input/userInput.h"
 #include "game/gameActions/pieceRotationTest.h"
 #include "game/gameActions/pieceCollisionTest.h"
-#include "game/input/actAccToInput.h"
 
 void actAccToPlayerInput(UserInput& inp, GameObject& gameObj)
 {

@@ -23,7 +23,7 @@ GameObject::GameObject(Essentials& essentials, unsigned skillLevel, const TimeOp
 	
 }
 
-Piece GameObject::getCurrentPiece() const
+const Piece& GameObject::getCurrentPiece() const
 {
 	return allPieces.getPiece(currentPiece.pieceIndex);
 }
@@ -33,17 +33,17 @@ Piece& GameObject::getCurrentPiece()
 	return allPieces.getPiece(currentPiece.pieceIndex);
 }
 
-bool GameObject::isSquarePresent(int x_sqr, int y_sqr) const
+bool GameObject::isSquarePresent(size_t x_sqr, size_t y_sqr) const
 {
 	return getCurrentPiece().getPresenceSquare(currentPiece.rotateIndex, x_sqr, y_sqr);
 }
 
-int GameObject::getCurrentPieceWidth() const
+size_t GameObject::getCurrentPieceWidth() const
 {
 	return getCurrentPiece().width(currentPiece.rotateIndex);
 }
 
-int GameObject::getCurrentPieceHeight() const
+size_t GameObject::getCurrentPieceHeight() const
 {
 	return getCurrentPiece().height(currentPiece.rotateIndex);
 }

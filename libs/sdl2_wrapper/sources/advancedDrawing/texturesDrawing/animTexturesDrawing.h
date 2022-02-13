@@ -60,6 +60,7 @@ public:
 	
 	size_t size() const;
 	const SingleAnimation& operator[](unsigned index) const;
+	SingleAnimation& operator[](unsigned index);
 	void drawFrame(sdl2::RendererWindow& rndWnd, const Offset& position, unsigned animNumber, unsigned frameNumber);
 	void drawFrame(sdl2::RendererWindow& rndWnd, int xpos, int ypos, unsigned animNumber, unsigned frameNumber);
 	void drawFrameToCenter(sdl2::RendererWindow& rndWnd, const Offset& position, unsigned animNumber, unsigned frameNumber);

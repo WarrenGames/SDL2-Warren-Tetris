@@ -81,10 +81,10 @@ void customMenu::Interface::updateHighlightButtons(const Offset& mousePosition, 
 
 void customMenu::Interface::setOptionForCustomGame(TimeOptions& timeOptions) const
 {
-	timeOptions.pieceFallTimeMin = static_cast<double>(pieceFallTimeMin);
-	timeOptions.pieceFallTimeMax = static_cast<double>(pieceFallTimeMax);
-	timeOptions.pieceSpeedIncr = static_cast<double>(pieceSpeedIncr);
-	timeOptions.pieceFallTotalTime = static_cast<double>(pieceFallTotalTime * 1000);
+	timeOptions.pieceFallTimeMin = pieceFallTimeMin;
+	timeOptions.pieceFallTimeMax = pieceFallTimeMax;
+	timeOptions.pieceSpeedIncr = pieceSpeedIncr;
+	timeOptions.pieceFallTotalTime = pieceFallTotalTime * 1000;
 }
 
 bool customMenu::Interface::letsStartCustomGame(unsigned skill) const

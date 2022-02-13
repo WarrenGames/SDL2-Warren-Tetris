@@ -11,6 +11,7 @@ private:
 	
 public:
 	explicit IntRandomGenerator(int lowValue, int highValue);
+	explicit IntRandomGenerator(int lowValue, int highValue, unsigned seedAdd);
 	~IntRandomGenerator() = default;
 	IntRandomGenerator( const IntRandomGenerator& ) = delete;
 	IntRandomGenerator& operator= ( const IntRandomGenerator& ) = delete;

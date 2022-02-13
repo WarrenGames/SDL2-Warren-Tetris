@@ -84,14 +84,3 @@ void drawVerticalGradient(sdl2::SurfacePtr& surf, int starty, int endy, const SD
 																  static_cast<Uint8>(coefDirAlpha * i + bAlpha) ) );
 	}
 }
-
-/*
-void resetSimpleTexture(AppLogFiles& logs, sdl2::RendererWindow& rndWnd, const sdl2::Font& font, sdl2::TextureLoader& texture, sdl2::Sprite& sprite, const std::string& text, const SDL_Color& col)
-{
-	if( sdl2::TextureLoader tload{logs, rndWnd, font, text, col} )
-	{
-		texture = std::move( tload );
-		sprite = texture;
-	}
-}
-*/

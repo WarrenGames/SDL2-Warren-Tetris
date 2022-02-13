@@ -13,6 +13,9 @@
 #elif( _MSC_VER >= 1910 )
 	#include <filesystem> // Microsoft-specific implementation header file name
 	namespace fs = std::filesystem;
+#else
+	#include <filesystem>
+	namespace fs = std::filesystem;
 #endif
 
-#endif//FILE_SYSTEM_H
+#endif //FILE_SYSTEM_H

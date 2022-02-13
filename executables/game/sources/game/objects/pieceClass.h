@@ -13,13 +13,14 @@ private:
 	std::array<MatrixTemp2D<SquareData>, ROT_IND::MAX > pieceMatrices;
 
 public:
-	Piece(const MatrixTemp2D<SquareData>& northMatrix, unsigned color);
-	Piece() = delete;
+	explicit Piece(const MatrixTemp2D<SquareData>& northMatrix, unsigned color);
 	~Piece() = default;
+	Piece( const Piece& ) = default;
+	Piece& operator= ( const Piece& ) = default;
 	
 	unsigned getColor() const;
-	int width(size_t index) const;
-	int height(size_t index) const;
+	size_t width(size_t index) const;
+	size_t height(size_t index) const;
 	
 	void makeMatricesRotatedChildren();
 	void fillSubMatrices(const MatrixTemp2D<SquareData>& srcMatrix, MatrixTemp2D<SquareData>& destMat);

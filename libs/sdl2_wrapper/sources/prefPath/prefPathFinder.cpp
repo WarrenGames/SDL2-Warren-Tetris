@@ -6,7 +6,8 @@
 PrefPathFinder::PrefPathFinder(const std::string& organization, const std::string& appName, int squareSize):
 	isPathFound{false}
 {
-	//'appName' should be equal to 'Mercenaries'
+	//'squareSize' parameter is the logical square size of a block of texture (for tile mapping).
+	
 	std::string finalAppName{appName + " sqr" + std::to_string(squareSize)};
 	
 	initialize(organization, finalAppName);

@@ -7,14 +7,14 @@ TimeOptions::TimeOptions(double delay):
 	pieceFallTimeMax{1000},
 	pieceSpeedIncr{1},
 	pieceFallTotalTime{1000 * 60 * 15},	
-	pieceFallChangeDelay{pieceFallTotalTime / ( pieceFallTimeMax - pieceFallTimeMin) / pieceSpeedIncr}
+	pieceFallChangeDelay{ 1000 * pieceFallTotalTime / ( pieceFallTimeMax - pieceFallTimeMin) / pieceSpeedIncr}
 {
 	
 }
 
 void TimeOptions::changePiecesSpeedIfAny()
 {
-	if( timePeriod.hasTimeElapsed(pieceFallChangeDelay) )
+	if( timePeriod.hasTimeElapsed( std::chrono::microseconds{pieceFallChangeDelay} ) )
 	{
 		if( fallDelay >= pieceFallTimeMin + pieceSpeedIncr && fallDelay <= pieceFallTimeMax )
 		{
@@ -26,5 +26,5 @@ void TimeOptions::changePiecesSpeedIfAny()
 
 void TimeOptions::setPieceFallChangeDelay()
 {
-	pieceFallChangeDelay = pieceFallTotalTime / ( pieceFallTimeMax - pieceFallTimeMin ) / pieceSpeedIncr;
+	pieceFallChangeDelay = 1000 * pieceFallTotalTime / ( pieceFallTimeMax - pieceFallTimeMin ) / pieceSpeedIncr;
 }

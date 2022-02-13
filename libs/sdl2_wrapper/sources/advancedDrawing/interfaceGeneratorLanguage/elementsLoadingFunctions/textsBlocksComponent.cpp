@@ -30,7 +30,7 @@ igl::Texts::Texts(AppLogFiles& logs, const std::string& configFilePath):
 
 igl::Texts::operator bool() const
 {
-	return isLoadingPerfect && std::all_of(std::cbegin(texts), std::cend(texts), [](auto &text){ return text.wasReadingPerfect(); } );
+	return isLoadingPerfect;
 }
 
 const std::string& igl::Texts::getText(size_t fileIndex, size_t lineIndex) const

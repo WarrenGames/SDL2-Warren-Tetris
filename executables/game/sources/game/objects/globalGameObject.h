@@ -36,13 +36,13 @@ struct GameObject
 	
 //Member functions	
 	GameObject(Essentials& essentials, unsigned skillLevel, const TimeOptions& timeOptions);
-	Piece getCurrentPiece() const;
+	const Piece& getCurrentPiece() const;
 	Piece& getCurrentPiece();
 	
-	bool isSquarePresent(int x_sqr, int y_sqr) const;
+	bool isSquarePresent(size_t x_sqr, size_t y_sqr) const;
 	
-	int getCurrentPieceWidth() const;
-	int getCurrentPieceHeight() const;
+	size_t getCurrentPieceWidth() const;
+	size_t getCurrentPieceHeight() const;
 	
 	void moveCurrentPieceDowner();
 	

@@ -1,6 +1,9 @@
 #ifndef INTERFACE_GENERATOR_LANGUAGE_TEXTUE_COMPONENT_H
 #define INTERFACE_GENERATOR_LANGUAGE_TEXTUE_COMPONENT_H
 
+// To use theses functionality run 'either' openScriptFileWithImageOnly() or openScriptFile()
+
+
 #include "texturing/texturesCombo.h"
 #include <vector>
 #include <string>

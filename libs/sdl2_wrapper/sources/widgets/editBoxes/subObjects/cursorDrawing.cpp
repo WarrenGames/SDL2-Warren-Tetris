@@ -15,10 +15,10 @@ BoxCursor::BoxCursor(AppLogFiles& logs, sdl2::RendererWindow& rndWnd, const SDL_
 
 void BoxCursor::blinkCursor()
 {
-	if( timeCursor.hasTimeElapsed( CURSOR_BLINK_TIME ) )
+	if( timeCursor.hasTimeElapsed( std::chrono::milliseconds{CURSOR_BLINK_TIME} ) )
 	{
-		canCursorBeBlit = !canCursorBeBlit;
 		timeCursor.joinTimePoints();
+		canCursorBeBlit = !canCursorBeBlit;
 	}
 }
 

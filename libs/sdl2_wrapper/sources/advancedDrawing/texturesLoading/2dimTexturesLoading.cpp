@@ -24,14 +24,14 @@ Matrix2DTexturesLoading::Matrix2DTexturesLoading(AppLogFiles& logs, sdl2::Render
 }
 
 Matrix2DTexturesLoading::Matrix2DTexturesLoading(AppLogFiles& logs, sdl2::RendererWindow& rndWnd, const Coord2D& size, const std::string& listFileName):
-	textures{size}
+	textures{size},
+	isLoadingPerfect{true}
 {
 	lookUpListFile(logs, rndWnd, listFileName);
 }
 
 bool Matrix2DTexturesLoading::wasLoadingPerfect() const
 {
-	
 	return isLoadingPerfect;
 }
 

@@ -4,15 +4,16 @@
 #include "matrices/matrixStructs.h"
 #include <vector>
 #include <cassert>
+#include <utility>
 
 template <typename T>
 class MatrixTemp2D
-{	
-using iterator			   = typename std::vector<T>::iterator;
-using const_iterator		 = typename std::vector<T>::const_iterator;
-using reverse_iterator	   = typename std::vector<T>::reverse_iterator;
-using const_reverse_iterator = typename std::vector<T>::const_reverse_iterator;
-	
+{
+using iterator					= typename std::vector<T>::iterator;
+using const_iterator			= typename std::vector<T>::const_iterator;
+using reverse_iterator			= typename std::vector<T>::reverse_iterator;
+using const_reverse_iterator	= typename std::vector<T>::const_reverse_iterator;
+
 private:
 	size_t width_;
 	size_t height_;
@@ -42,42 +43,31 @@ public:
 		assert( width > 0 && height > 0 );
 	}
 	
-	MatrixTemp2D( const MatrixTemp2D& copy ):
-		width_{ copy.width_ },
-		height_{ copy.height_ },
-		datas_{ copy.datas_ }
+	MatrixTemp2D( const MatrixTemp2D& ) = default;
+	
+	MatrixTemp2D& operator= ( const MatrixTemp2D& ) = default;
+	
+	MatrixTemp2D( MatrixTemp2D&& toMove ) noexcept:
+		width_{ std::exchange(toMove.width_, 0 ) },
+		height_{ std::exchange(toMove.height_, 0 ) },
+		datas_{ std::move( toMove.datas_ ) }
 	{
-			
+		
 	}
 	
-	MatrixTemp2D& operator= ( const MatrixTemp2D& copy )
+	MatrixTemp2D& operator= ( MatrixTemp2D&& toMove ) noexcept
 	{
-		width_ = copy.width_;
-		height_ = copy.height_;
-		datas_ = copy.datas_;
-		return *this;	
-	}
-	
-	MatrixTemp2D( MatrixTemp2D&& toMove):
-		width_{ toMove.width_ },
-		height_{ toMove.height_ }
-	{
-		datas_ = std::move( toMove.datas_ );
-	}
-	
-	MatrixTemp2D& operator= ( MatrixTemp2D&& toMove )
-	{
-		width_ = toMove.width_;
-		height_ = toMove.height_;
+		width_ = std::exchange( toMove.width_, 0 );
+		height_ = std::exchange( toMove.height_, 0 );
 		datas_ = std::move( toMove.datas_ );
 		return *this;
 	}
 	
 	void resize(const Coord2D& size)
 	{
+		datas_.resize(size.width * size.height);
 		width_ = size.width;
 		height_ = size.height;
-		datas_.resize(size.width * size.height);
 	}
 
 	const T & operator()(std::size_t x, std::size_t y) const
@@ -108,7 +98,7 @@ public:
 		return datas_[ coord.height * width_ + coord.width ];
 	}
 	
-	void fillMatrix(T typeTemp)
+	void fillMatrix(const T& typeTemp)
 	{
 		std::fill( datas_.begin(), datas_.end(), typeTemp );
 	}
@@ -174,7 +164,7 @@ public:
 		height_ = temp;
 	}
 	
-	Coord2D getCoordSize()
+	Coord2D getCoordSize() const
 	{
 		return Coord2D{width_, height_};
 	}
@@ -183,7 +173,7 @@ public:
 	{
 		datas_.clear();
 	}
-	
+
 	iterator begin()
 	{ 
 		return datas_.begin(); 

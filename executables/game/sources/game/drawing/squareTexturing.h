@@ -18,8 +18,7 @@ public:
 	SquaresDrawing( const SquaresDrawing& Copy ) = delete;
 	SquaresDrawing& operator= ( const SquaresDrawing& Copy ) = delete;
 	
-	void drawSquare(size_t colorIndex, int posx, int posy, sdl2::RendererWindow& render);
-	
+	void drawSquare(unsigned colorIndex, int posx, int posy, sdl2::RendererWindow& render);
 };
 
 #endif //GAME_TEXTURING_H

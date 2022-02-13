@@ -107,13 +107,13 @@ add_executable(
 
 target_include_directories(
 	${PROJECT_NAME}
-	PUBLIC ${SDL2_INCLUDE_DIRS}
-	PUBLIC ${SDL2_IMAGE_INCLUDE_DIRS}
-	PUBLIC ${SDL2_TTF_INCLUDE_DIRS}
-	PUBLIC ${SDL2_MIXER_INCLUDE_DIRS}
-	PUBLIC sources
-	PUBLIC ../genericLib/sources
-	PUBLIC ../sdl2_wrapper/sources
+	PRIVATE ${SDL2_INCLUDE_DIRS}
+	PRIVATE ${SDL2_IMAGE_INCLUDE_DIRS}
+	PRIVATE ${SDL2_TTF_INCLUDE_DIRS}
+	PRIVATE ${SDL2_MIXER_INCLUDE_DIRS}
+	PRIVATE sources
+	PRIVATE ../../libs/genericLib/sources
+	PRIVATE ../../libs/sdl2_wrapper/sources
 )
 
 target_link_libraries(	

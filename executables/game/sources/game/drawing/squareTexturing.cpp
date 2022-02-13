@@ -16,7 +16,7 @@ SquaresDrawing::SquaresDrawing(AppLogFiles& logs, sdl2::RendererWindow& rndWnd)
 	}
 }
 
-void SquaresDrawing::drawSquare(size_t colorIndex, int posx, int posy, sdl2::RendererWindow& rndWnd)
+void SquaresDrawing::drawSquare(unsigned colorIndex, int posx, int posy, sdl2::RendererWindow& rndWnd)
 {
 	assert( colorIndex < squaresTextures.size() );
 	squaresTextures[colorIndex].draw(rndWnd, posx, posy);

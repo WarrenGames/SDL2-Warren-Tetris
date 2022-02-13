@@ -15,7 +15,6 @@ private:
 public:
 	explicit PrefPathFinder(const std::string& organization, const std::string& appName, int squareSize);
 	explicit PrefPathFinder(const std::string& organization, const std::string& appName);
-	PrefPathFinder() = delete;
 	~PrefPathFinder() = default;
 	PrefPathFinder( const PrefPathFinder& ) = delete;
 	PrefPathFinder& operator= (const PrefPathFinder& ) = delete;

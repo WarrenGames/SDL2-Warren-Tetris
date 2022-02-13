@@ -6,8 +6,8 @@ UserInput::UserInput():
 	keysStates{false, false, false, false},
 	escapeState{false},
 	closeWindow{false},
-	mousePosition{ -1, -1 },
-	leftMouseButton{false}
+	leftMouseButton{false},
+	mousePosition{ -1, -1 }
 {
 	
 }

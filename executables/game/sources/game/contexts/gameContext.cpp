@@ -42,7 +42,7 @@ void gameMainLoop(Essentials& essentials, TimeOptions& timeOpt, GameObject& game
 
 void makeCurrentPieceGoDowner(GameObject& gameObj, TimeOptions& timeOpt, bool& quitGame)
 {
-	if( gameObj.pieceFallTime.hasTimeElapsed(timeOpt.fallDelay) )
+	if( gameObj.pieceFallTime.hasTimeElapsed( std::chrono::milliseconds{ static_cast<unsigned>(timeOpt.fallDelay) } ) )
 	{
 		if( !isPieceInCollisionWithMat(gameObj, 0, 1) && !hasPieceReachedBottom(gameObj ) )
 		{
@@ -59,7 +59,7 @@ void makeCurrentPieceGoDowner(GameObject& gameObj, TimeOptions& timeOpt, bool& q
 
 void drawEverything(Essentials& essentials, GameObject& gameObj)
 {
-	if( essentials.drawFrequency.hasTimeElapsed(10) )
+	if( essentials.drawFrequency.hasTimeElapsed( std::chrono::milliseconds{10} ) )
 	{
 		essentials.rndWnd.clearScreen(BLACK_COL);
 		gameObj.drawEverything(essentials);

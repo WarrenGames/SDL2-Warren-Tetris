@@ -41,7 +41,7 @@ void bestScores::quitWInp(Essentials& essentials, bool& quitContext)
 
 void bestScores::drawAll(Essentials& essentials, const ScoresGraphics& scores)
 {
-	if( essentials.drawFrequency.hasTimeElapsed(16) )
+	if( essentials.drawFrequency.hasTimeElapsed( std::chrono::milliseconds{16} ) )
 	{
 		essentials.rndWnd.clearScreen(BLACK_COL);
 		scores.drawTexts(essentials);

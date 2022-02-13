@@ -45,7 +45,7 @@ void customMenu::quitWithEscape(Essentials& essentials, bool& quitContext)
 
 void customMenu::drawEverything(Essentials& essentials, Interface& interface)
 {
-	if( essentials.drawFrequency.hasTimeElapsed(16) )
+	if( essentials.drawFrequency.hasTimeElapsed( std::chrono::milliseconds{16} ) )
 	{
 		essentials.rndWnd.clearScreen(BLACK_COL);
 		interface.drawEverything(essentials);

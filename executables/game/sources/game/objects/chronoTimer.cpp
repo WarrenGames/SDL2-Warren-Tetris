@@ -38,7 +38,7 @@ void ChronoTimer::drawText(Essentials& essentials) const
 
 void ChronoTimer::mesureElapsedTime()
 {
-	if( chrono.hasTimeElapsed(1000) )
+	if( chrono.hasTimeElapsed( std::chrono::milliseconds{1000} ) )
 	{
 		doesTextNeedChange = true;
 		elapsedSeconds++;

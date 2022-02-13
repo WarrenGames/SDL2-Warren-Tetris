@@ -1,54 +1,52 @@
 #include "time/accurateTime.h"
 
 AccurateTimeDelay::AccurateTimeDelay():
-	current{std::chrono::steady_clock::now()},
 	precedent{std::chrono::steady_clock::now()}
 {
 	
 }
 
-bool AccurateTimeDelay::hasTimeElapsed(double passedTime)
+bool AccurateTimeDelay::hasTimeElapsed(std::chrono::milliseconds elapsedTime) const
 {
-	current = std::chrono::steady_clock::now();
-	
-	duration = current - precedent;
-	
-	return duration.count() >= passedTime;
+	return std::chrono::steady_clock::now() - precedent >= elapsedTime;
 }
 
-bool AccurateTimeDelay::hasTimeNotElapsed(double delay)
+bool AccurateTimeDelay::hasTimeElapsed(std::chrono::microseconds elapsedTime) const
 {
-	current = std::chrono::steady_clock::now();
-
-	duration = current - precedent;
-
-	return duration.count() < delay;
+	return std::chrono::steady_clock::now() - precedent >= elapsedTime;
 }
 
-bool AccurateTimeDelay::isTimeBetweenBoundaries(double min, double max)
+bool AccurateTimeDelay::hasTimeElapsed(const std::chrono::duration<double, std::micro>& delay) const
 {
-	current = std::chrono::steady_clock::now();
-	
-	duration = current - precedent;
-	
-	return duration.count() >= min && duration.count() < max;
+	return std::chrono::steady_clock::now() - precedent >= delay;
+}
+
+bool AccurateTimeDelay::hasTimeElapsed(const std::chrono::duration<double, std::milli>& delay) const
+{
+	return std::chrono::steady_clock::now() - precedent >= delay;
+}
+
+bool AccurateTimeDelay::hasTimeNotElapsed(std::chrono::milliseconds elapsedTime) const
+{
+	return std::chrono::steady_clock::now() - precedent < elapsedTime;
+}
+
+bool AccurateTimeDelay::isTimeBetweenBoundaries(std::chrono::milliseconds min, std::chrono::milliseconds max) const
+{
+	return std::chrono::steady_clock::now() - precedent >= min && std::chrono::steady_clock::now() - precedent < max;
 }
 
 void AccurateTimeDelay::joinTimePoints()
 {
-	precedent = current;
-}
-
-void AccurateTimeDelay::setPrecedentTimePoint()
-{
 	precedent = std::chrono::steady_clock::now();
 }
 
-double AccurateTimeDelay::getCurrentElapsedTime()
+std::chrono::duration<double, std::milli> AccurateTimeDelay::getCurrentElapsedMillisecondsTime() const
 {
-	current = std::chrono::steady_clock::now();
-	
-	duration = current - precedent;
-	
-	return duration.count();
+	return std::chrono::steady_clock::now() - precedent;
+}
+
+std::chrono::duration<double, std::micro> AccurateTimeDelay::getCurrentElapsedMicrosecondsTime() const
+{
+	return std::chrono::steady_clock::now() - precedent;
 }

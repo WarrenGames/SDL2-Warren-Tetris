@@ -87,6 +87,12 @@ const SingleAnimation& AnimTexturesDrawing::operator[](unsigned index) const
 	return animations[index];
 }
 
+SingleAnimation& AnimTexturesDrawing::operator[](unsigned index)
+{
+	assert( index < animations.size() );
+	return animations[index];
+}
+
 void AnimTexturesDrawing::drawFrame(sdl2::RendererWindow& rndWnd, const Offset& position, unsigned animNumber, unsigned frameNumber)
 {
 	assert( animNumber < animations.size() );

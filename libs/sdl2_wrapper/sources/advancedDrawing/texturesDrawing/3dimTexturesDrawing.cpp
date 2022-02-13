@@ -56,26 +56,6 @@ void Matrix3DTexturesDrawing::drawToCenter(sdl2::RendererWindow& rndWnd, const C
 	sprites(coords).drawToCenter(rndWnd, position);
 }
 
-std::vector< sdl2::Sprite >::const_iterator Matrix3DTexturesDrawing::begin() const
-{
-	return sprites.begin();
-}
-
-std::vector< sdl2::Sprite >::const_iterator Matrix3DTexturesDrawing::end() const
-{
-	return sprites.end();
-}
-
-std::vector< sdl2::Sprite >::iterator Matrix3DTexturesDrawing::begin()
-{
-	return sprites.begin();
-}
-
-std::vector< sdl2::Sprite >::iterator Matrix3DTexturesDrawing::end()
-{
-	return sprites.end();
-}
-
 sdl2::Sprite& Matrix3DTexturesDrawing::operator() ( const Coord3D& coords)
 {
 	return sprites(coords);

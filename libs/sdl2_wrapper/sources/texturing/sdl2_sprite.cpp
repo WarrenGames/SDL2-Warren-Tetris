@@ -45,7 +45,8 @@ sdl2::Sprite::Sprite( const sdl2::TextureLoader& loader, int xpos, bool on_x_cen
 
 sdl2::Sprite::Sprite( const sdl2::TextureLoader& loader, const TexturePosition& pos):
 	texture{ &loader.texture },
-	destRect{ pos.position.x, pos.position.y, 0, 0 }
+	destRect{ pos.position.x, pos.position.y, 0, 0 },
+	srcRect{ 0, 0, 0, 0 }
 {
 	if( *texture )
 	{
@@ -270,8 +271,8 @@ void sdl2::Sprite::resetSourceRect()
 		if( texture->get() )
 		{
 			SDL_QueryTexture(texture->get(), nullptr, nullptr, &srcRect.w, &srcRect.h);
-			srcRect.x = 0;
-			srcRect.y = 0;
+			srcRect.x = 0;//This is not the position on the screen of the sprite, but the position of the texture clip
+			srcRect.y = 0;//This is not the position on the screen of the sprite, but the position of the texture clip
 		}
 	}
 }

@@ -19,8 +19,8 @@ public:
 	explicit ButtonFlat(AppLogFiles& logs, sdl2::RendererWindow& rndWnd, const std::string& texturePath, int xpos, int ypos);
 	explicit ButtonFlat(AppLogFiles& logs, sdl2::RendererWindow& rndWnd, const std::string& texturePath, int xpos, int ypos, bool centered);
 	~ButtonFlat() = default;
-	ButtonFlat(ButtonFlat const& ) = delete;
-	ButtonFlat & operator = (ButtonFlat  const &) = delete;
+	ButtonFlat( const ButtonFlat& ) = delete;
+	ButtonFlat & operator = ( const ButtonFlat& ) = delete;
 	ButtonFlat( ButtonFlat&& ) = default;
 	ButtonFlat& operator= ( ButtonFlat&& ) = default;
 

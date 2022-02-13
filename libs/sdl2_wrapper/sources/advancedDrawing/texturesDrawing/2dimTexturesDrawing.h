@@ -31,11 +31,6 @@ public:
 	void drawToCenter(sdl2::RendererWindow& rndWnd, const Coord2D& coords, const Offset& position);
 	void drawToCenter(sdl2::RendererWindow& rndWnd, unsigned width, unsigned height, int xpos, int ypos);
 	
-	std::vector< sdl2::Sprite >::const_iterator begin() const;
-	std::vector< sdl2::Sprite >::const_iterator end() const;
-	std::vector< sdl2::Sprite >::iterator begin();
-	std::vector< sdl2::Sprite >::iterator end();
-	
 	sdl2::Sprite& operator() ( const Coord2D& coords);
 	const sdl2::Sprite& operator() ( const Coord2D& coords) const;
 	sdl2::Sprite& operator() (size_t width, size_t height);
