@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=SDL2 Warren Tetris
+Comment=The tetris of the warren with SDL2
+Icon=/usr/local/share/game/icons/warren-tetris.ico
+Exec=/usr/local/bin/game
+Path=/usr/local/share/game
+Actions=
+Categories=Game;The games of the warren;
