@@ -39,8 +39,7 @@ cmake -G"Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DSQUARE_SIZE=64 -DCMAKE_CXX
 This will create Makefiles (because of the option -G"Unix Makefiles" ) a Release compilation type (not a Debug 
 one) a square size of 64 pixels ( -DSQUARE_SIZE=64 ) with the 'g++-11' compiler the compiled files will be in 
 '../build' directory. In Ubuntu you don't have to tell in the main CMakeLists.txt file the location of the 
-extern dependencies like SDL2 (with 'SDL2_DIR' value) and the wxWidgets framework (with wxWidgets_ROOT_DIR ; 
-wxWidgets_INCLUDE_DIRS ; wxWidgets_LIB_DIR values ).
+extern dependencies like SDL2 (with 'SDL2_DIR' value).
 
 -----------------
 Run compilation configuration with CMake under Windows with Visual Studio:
