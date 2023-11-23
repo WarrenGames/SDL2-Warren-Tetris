@@ -1,0 +1,40 @@
+Read 'README.md' for a description of the SDL2 Tetris game.
+
+All the sources of this project (excepted for the SDL2 for which I am not the author and not supplied
+in this project, has been written in C), have been written with the C++ language and needs at least a
+compiler that provide the 2017 C++ standard functionalities (like fileSystem header).
+
+The Sdl2 warren Tetris project has three dependencies:
+- The SimpleDirectMediaLayer v2.x library (also called 'SDL2')
+- The CMake build tool.
+- The WarrenGamesCustomLibs, that you can download on my repository (infos on how to use them are indicated
+	in the 'compileSourcesHowTo.txt' of theses libraries). You will have to set in the main CMakeLists.txt of
+	the Breakout4 project the path of the built WarrenGamesCustomLibs libraries for the following variable:
+	'WARREN_LIBS_BUILDING_PATH' (line 18)
+
+Implemented executables purposes:
+'game' : the tetris game.
+
+How to download the dependencies (if you don't have repositories to get them directly, for example):
+The SDL2 can be downloaded from this web site: 'https://www.libsdl.org'
+The CMake project configuration tool can be downloaded from this web site: 'https://www.cmake.org'
+
+-----------------
+Run compilation configuration with CMake under Ubuntu in a terminal:
+Open a terminal in the top project directory and run cmake with this command:
+
+cmake -G"Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DSQUARE_SIZE=64 -DCMAKE_CXX_COMPILER=g++-11 -S. -B../build
+
+This will create Makefiles (because of the option -G"Unix Makefiles" ) a Release compilation type (not a Debug 
+one) a square size of 64 pixels ( -DSQUARE_SIZE=64 ) with the 'g++-11' compiler the compiled files will be in 
+'../build' directory. In Ubuntu you don't have to tell in the main CMakeLists.txt file the location of the 
+extern dependencies like SDL2 (with 'SDL2_DIR' value).
+
+-----------------
+Run compilation configuration with CMake under Windows with Visual Studio:
+You must set the following string values in the main CMakeLists.txt so the project will use SDL2 and wxWidgets
+libraries:
+- SDL2_DIR "'path of the SDL2 library'" (for example: "E:/prog/library/SDL2-2.0.20/i686-w64-mingw32" for a 
+	32 bits compilation (note the 'i686-w64-mingw32' last dir for that purpose or: 
+	"E:/prog/library/SDL2-2.0.20/x86_64-w64-ming32" for a 64 bits compilation with 'x86_64-w64-mingw32' sub 
+	directory this time.
