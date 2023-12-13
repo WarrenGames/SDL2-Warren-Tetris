@@ -9,7 +9,7 @@ The Sdl2 warren Tetris project has three dependencies:
 - The CMake build tool.
 - The WarrenGamesCustomLibs, that you can download on my repository (infos on how to use them are indicated
 	in the 'compileSourcesHowTo.txt' of theses libraries). You will have to set in the main CMakeLists.txt of
-	the SDL2-Warren-Tetris project the path of the built WarrenGamesCustomLibs libraries for the following variable:
+	the Warren-Tetris project the path of the built WarrenGamesCustomLibs libraries for the following variable:
 	'WARREN_LIBS_BUILDING_PATH' (line 18)
 
 Implemented executables purposes:
@@ -23,12 +23,11 @@ The CMake project configuration tool can be downloaded from this web site: 'htt
 Run compilation configuration with CMake under Ubuntu in a terminal:
 Open a terminal in the top project directory and run cmake with this command:
 
-cmake -G"Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DSQUARE_SIZE=64 -DCMAKE_CXX_COMPILER=g++-11 -S. -B../build
+cmake -G"Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=g++-11 -S. -B../build
 
 This will create Makefiles (because of the option -G"Unix Makefiles" ) a Release compilation type (not a Debug 
-one) a square size of 64 pixels ( -DSQUARE_SIZE=64 ) with the 'g++-11' compiler the compiled files will be in 
-'../build' directory. In Ubuntu you don't have to tell in the main CMakeLists.txt file the location of the 
-extern dependencies like SDL2 (with 'SDL2_DIR' value).
+one), with the 'g++-11' compiler the compiled files will be in '../build' directory. In Ubuntu you don't have 
+to tell in the main CMakeLists.txt file the location of the extern dependencies like SDL2 (with 'SDL2_DIR' value).
 
 -----------------
 Run compilation configuration with CMake under Windows with Visual Studio:
