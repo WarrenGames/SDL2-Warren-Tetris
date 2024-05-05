@@ -1,0 +1,2 @@
+This is a clone of the well-known tetris game. The sources are cross-compatible with at least windows and linux OSes thanks to the SDL 2 library.
+To compile the sources read the 'compileSourcesHowTo.txt' file at the root directory of the github sources.
