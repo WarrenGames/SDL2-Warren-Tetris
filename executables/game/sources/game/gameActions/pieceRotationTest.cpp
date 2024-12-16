@@ -67,7 +67,7 @@ bool y_coord_correct(int y_pos, const MatrixTemp2D<SquareData>& matrix)
 
 void rotateIndexClockwise(std::size_t& rotationIndex)
 {
-	if( rotationIndex < ROT_IND::WEST )
+	if( rotationIndex < RotationIndex::West )
 	{
 		rotationIndex++;
 	}
@@ -83,6 +83,6 @@ void rotateIndexAntiClockwise(std::size_t& rotationIndex)
 		rotationIndex--;
 	}
 	else{
-		rotationIndex = ROT_IND::WEST;
+		rotationIndex = RotationIndex::West;
 	}
 }

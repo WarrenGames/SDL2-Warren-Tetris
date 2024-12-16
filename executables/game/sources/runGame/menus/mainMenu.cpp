@@ -38,7 +38,7 @@ void mainMenu::updateButtons(const Essentials& essentials, mainMenu::Elements& e
 
 void mainMenu::drawEverything(Essentials& essentials, const mainMenu::Elements& elements)
 {
-	essentials.rndWnd.clearScreen(BLACK_COL);
+	essentials.rndWnd.clearScreen(BlackColor);
 	elements.drawEverything(essentials);
 	essentials.rndWnd.displayRenderer();
 	SDL_Delay(10);
@@ -54,7 +54,7 @@ void mainMenu::quitMenu(Essentials& essentials, bool& quitContext)
 
 void mainMenu::runGame(Essentials& essentials, const mainMenu::Elements& elements)
 {
-	for( unsigned skill{0} ; skill < GAME_MAX ; ++skill )
+	for( unsigned skill{0} ; skill < SkillGameMax ; ++skill )
 	{
 		if( elements.isButtonClicked(skill) )
 		{	

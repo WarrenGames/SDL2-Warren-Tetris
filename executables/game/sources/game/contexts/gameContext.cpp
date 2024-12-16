@@ -61,7 +61,7 @@ void drawEverything(Essentials& essentials, GameObject& gameObj)
 {
 	if( essentials.drawFrequency.hasTimeElapsed( std::chrono::milliseconds{10} ) )
 	{
-		essentials.rndWnd.clearScreen(BLACK_COL);
+		essentials.rndWnd.clearScreen(BlackColor);
 		gameObj.drawEverything(essentials);
 		essentials.rndWnd.displayRenderer();
 		essentials.drawFrequency.joinTimePoints();

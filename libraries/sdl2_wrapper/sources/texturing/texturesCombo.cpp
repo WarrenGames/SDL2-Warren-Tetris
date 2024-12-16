@@ -110,6 +110,11 @@ void TextureCombo::draw(sdl2::RendererWindow& rndWnd, int xpos, int ypos)
 	sprite.draw(rndWnd, xpos, ypos);
 }
 
+void TextureCombo::draw(sdl2::RendererWindow& rndWnd, const TexturePosition& pos)
+{
+	sprite.draw(rndWnd, pos);
+}
+
 void TextureCombo::drawToCenter(sdl2::RendererWindow& rndWnd, int xpos, int ypos)
 {
 	sprite.drawToCenter(rndWnd, xpos, ypos);

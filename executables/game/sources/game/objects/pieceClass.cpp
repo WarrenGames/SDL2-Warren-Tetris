@@ -30,8 +30,8 @@ std::size_t Piece::height(std::size_t index) const
 
 void Piece::makeMatricesRotatedChildren()
 {
-	pieceMatrices[ROT_IND::EAST].reverseDimensions();
-	pieceMatrices[ROT_IND::WEST].reverseDimensions();
+	pieceMatrices[RotationIndex::East].reverseDimensions();
+	pieceMatrices[RotationIndex::West].reverseDimensions();
 }
 
 void Piece::fillSubMatrices(const MatrixTemp2D<SquareData>& srcMatrix, MatrixTemp2D<SquareData>& destMat)
@@ -74,7 +74,7 @@ int getReverseIndex(int size, int srcIndex)
 
 std::size_t getNextMatrixClockwiseOrder(std::size_t currentIndex)
 {
-	if( currentIndex < ROT_IND::MAX - 1 )
+	if( currentIndex + 1 < RotationIndex::Max )
 		return currentIndex + 1;
 	else
 		return 0;
@@ -85,5 +85,5 @@ std::size_t getNextMatrixAntiClockwiseOrder(std::size_t currentIndex)
 	if( currentIndex > 0 )
 		return currentIndex - 1;
 	else
-		return ROT_IND::MAX - 1;
+		return RotationIndex::Max - 1;
 }

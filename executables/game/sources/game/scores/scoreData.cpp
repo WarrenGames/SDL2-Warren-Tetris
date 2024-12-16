@@ -11,16 +11,16 @@ ScoresData::ScoresData(Essentials& essentials, unsigned playerScore, unsigned sk
 		std::vector<Score>(SCORE_NUM_PER_SKILL)
 	}
 {
-	loadScoreFile(essentials, essentials.prefPath.getPath() + EASY_FILE_NAME, EASY_GAME);
-	loadScoreFile(essentials, essentials.prefPath.getPath() + INTERM_FILE_NAME, INTERMEDIATE_GAME);
-	loadScoreFile(essentials, essentials.prefPath.getPath() + HARD_FILE_NAME, HARD_GAME);
+	loadScoreFile(essentials, essentials.prefPath.getPath() + ScoreEasyFileName, SkillEasyGame);
+	loadScoreFile(essentials, essentials.prefPath.getPath() + ScoreIntermediateFileName, SkillIntermediateGame);
+	loadScoreFile(essentials, essentials.prefPath.getPath() + ScoreHardFileName, SkillHardGame);
 	addCurrentPlayerScore(playerScore, skill);
 	sortVectors();
 }
 
 void ScoresData::loadScoreFile(Essentials& essentials, const std::string& scoreFilePath, unsigned skill)
 {
-	assert( skill < GAME_MAX );
+	assert( skill < SkillGameMax );
 	if( std::ifstream scoreFile{scoreFilePath} )
 	{
 		for( std::size_t i{0} ; i < SCORE_NUM_PER_SKILL ; ++i )
@@ -42,9 +42,9 @@ void ScoresData::loadScoreFile(Essentials& essentials, const std::string& scoreF
 
 void ScoresData::outputScoresToFile(Essentials& essentials)
 {
-	writeSingleFile(essentials, EASY_FILE_NAME, 0);
-	writeSingleFile(essentials, INTERM_FILE_NAME, 1);
-	writeSingleFile(essentials, HARD_FILE_NAME, 2);
+	writeSingleFile(essentials, ScoreEasyFileName, 0);
+	writeSingleFile(essentials, ScoreIntermediateFileName, 1);
+	writeSingleFile(essentials, ScoreHardFileName, 2);
 }
 
 void ScoresData::writeSingleFile(Essentials& essentials, const std::string& fileName, unsigned skill)

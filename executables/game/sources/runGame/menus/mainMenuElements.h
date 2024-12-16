@@ -18,7 +18,7 @@ struct Elements
 {
 	const sdl2::Font arial;
 	TextureCombo title;
-	std::array< HighLightButton, GAME_MAX > skillButtons;
+	std::array< HighLightButton, SkillGameMax > skillButtons;
 	std::array< TextureCombo, INP_MAX > inputsTexts;
 	HighLightButton customGame;
 	HighLightButton optionsButton;

@@ -8,12 +8,12 @@
 #include <fstream>
 
 ScoresGraphics::ScoresGraphics(Essentials& essentials, const sdl2::Font& arial, const ScoresData& data):
-	title{essentials.logs, essentials.rndWnd, arial, "Best scores", WHITE_COL, TexturePosition{ SCREENW / 2, SQR_SIZE, true, true} }
+	title{essentials.logs, essentials.rndWnd, arial, "Best scores", WhiteColor, TexturePosition{ GameWindowWidth / 2, SQR_SIZE, true, true} }
 {	
 	createTexts(essentials, arial, data);
-	addSkillText(essentials, arial, "Easy", EASY_GAME);
-	addSkillText(essentials, arial, "Intermediate", INTERMEDIATE_GAME);
-	addSkillText(essentials, arial, "Hard", HARD_GAME);
+	addSkillText(essentials, arial, "Easy", SkillEasyGame);
+	addSkillText(essentials, arial, "Intermediate", SkillIntermediateGame);
+	addSkillText(essentials, arial, "Hard", SkillHardGame);
 }
 
 void ScoresGraphics::drawTexts(Essentials& essentials) const
@@ -44,7 +44,7 @@ void ScoresGraphics::drawScores(Essentials& essentials) const
 
 void ScoresGraphics::createTexts(Essentials& essentials, const sdl2::Font& arial, const ScoresData& data)
 {
-	for( std::size_t skill{0} ; skill < GAME_MAX ; ++skill )
+	for( std::size_t skill{0} ; skill < SkillGameMax ; ++skill )
 	{
 		for( std::size_t scoreNum{0} ; scoreNum < SCORE_NUM_PER_SKILL ; ++scoreNum )
 		{
@@ -58,13 +58,13 @@ void ScoresGraphics::createTexts(Essentials& essentials, const sdl2::Font& arial
 SDL_Color ScoresGraphics::getColor(bool isCurrentGame) const
 {
 	if( isCurrentGame )
-		return GREEN_COL;
+		return GreenColor;
 	else
-		return WHITE_COL;
+		return WhiteColor;
 }
 
 void ScoresGraphics::addSkillText(Essentials& essentials, const sdl2::Font& arial, const std::string& text, int skillNum)
 {
-	assert( skillNum < GAME_MAX );
-	skillText.emplace_back(TextureCombo{essentials.logs, essentials.rndWnd, arial, text, WHITE_COL, TexturePosition{SQR_SIZE, skillNum * SQR_SIZE * 6 + SQR_SIZE * 3, false, true} } );
+	assert( skillNum < SkillGameMax );
+	skillText.emplace_back(TextureCombo{essentials.logs, essentials.rndWnd, arial, text, WhiteColor, TexturePosition{SQR_SIZE, skillNum * SQR_SIZE * 6 + SQR_SIZE * 3, false, true} } );
 }

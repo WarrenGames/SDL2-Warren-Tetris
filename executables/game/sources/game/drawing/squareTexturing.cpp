@@ -5,7 +5,7 @@
 
 SquaresDrawing::SquaresDrawing(AppLogFiles& logs, sdl2::RendererWindow& rndWnd)
 {
-	for( std::size_t i{0} ; i < SQR_COLOR_NUM ; ++i )
+	for( std::size_t i{0} ; i < SquareColorNumber ; ++i )
 	{
 		squaresTextures.emplace_back(TextureCombo{logs, rndWnd, "textures/elements/square" + std::to_string(i) + ".png" } );
 	

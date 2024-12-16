@@ -3,31 +3,31 @@
 
 #include <cstddef>
 
-enum ROT_IND{NORTH, EAST, SOUTH, WEST, MAX};
+enum RotationIndex{North, East, South, West, Max};
 
-constexpr std::size_t BIGMAT_WIDTH = 10;
-constexpr std::size_t BIGMAT_HEIGHT = 24;
+constexpr std::size_t BigMatrixWidth = 10;
+constexpr std::size_t BigMatrixHeight = 24;
 
 constexpr int SQR_SIZE = 32; //Size in pixels
 
-constexpr int INFOS_PANEL_WIDTH = SQR_SIZE * 12;
+constexpr int InfosPanelWidth = SQR_SIZE * 12;
 
-constexpr int SCREENW = BIGMAT_WIDTH * SQR_SIZE + 2 * SQR_SIZE + INFOS_PANEL_WIDTH;
-constexpr int SCREENH = BIGMAT_HEIGHT * SQR_SIZE + SQR_SIZE;
+constexpr int GameWindowWidth = BigMatrixWidth * SQR_SIZE + 2 * SQR_SIZE + InfosPanelWidth;
+constexpr int GameWindowHeight = BigMatrixHeight * SQR_SIZE + SQR_SIZE;
 
-constexpr std::size_t SQR_COLOR_NUM = 10;
+constexpr std::size_t SquareColorNumber = 10;
 
-enum{EASY_GAME, INTERMEDIATE_GAME, HARD_GAME, GAME_MAX};
+enum{ SkillEasyGame, SkillIntermediateGame, SkillHardGame, SkillGameMax };
 
-constexpr char ARIALFONTPATH[] = "fonts/arial.ttf"; 
+constexpr char GameFontPath[] = "fonts/FreeSans.ttf"; 
 
-constexpr char EASY_FILE_NAME[] = "easyScores.txt";
-constexpr char INTERM_FILE_NAME[] = "intermediateScores.txt";
-constexpr char HARD_FILE_NAME[] = "hardScores.txt";
+constexpr char ScoreEasyFileName[] = "easyScores.txt";
+constexpr char ScoreIntermediateFileName[] = "intermediateScores.txt";
+constexpr char ScoreHardFileName[] = "hardScores.txt";
 
-constexpr char ORGANIZATION[] = "The games of the warren";
-constexpr char GAME_NAME[] = "SDL2 Tetris";
-constexpr char ERR_LOG_FILE_NAME[] = "errorLog.txt";
-constexpr char WARN_LOG_FILE_NAME[] = "warningLog.txt";
+constexpr char Organization[] = "The games of the warren";
+constexpr char GameName[] = "SDL2 Tetris";
+constexpr char ErrorLogFileName[] = "errorLog.txt";
+constexpr char WarningLogFileName[] = "warningLog.txt";
 
 #endif //CONSTEXPR_H

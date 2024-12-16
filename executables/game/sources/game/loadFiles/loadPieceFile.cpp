@@ -59,14 +59,14 @@ void loadPiecesAccToSkillLevel(AppLogFiles& logs, unsigned skillLevel, LoadedPie
 {
 	switch( skillLevel )
 	{
-		case EASY_GAME:
+		case SkillEasyGame:
 			loadPieceFile(logs, "bigBar.piece", pieces);
 			loadPieceFile(logs, "bigSquare.piece", pieces);
 			loadPieceFile(logs, "littleBar.piece", pieces);
 			loadPieceFile(logs, "littleSquare.piece", pieces);
 			loadPieceFile(logs, "mediumBar.piece", pieces);
 			break;
-		case INTERMEDIATE_GAME:
+		case SkillIntermediateGame:
 			loadPieceFile(logs, "bigBar.piece", pieces);
 			loadPieceFile(logs, "bigSquare.piece", pieces);
 			loadPieceFile(logs, "corner.piece", pieces);
@@ -75,7 +75,7 @@ void loadPiecesAccToSkillLevel(AppLogFiles& logs, unsigned skillLevel, LoadedPie
 			loadPieceFile(logs, "littleSquare.piece", pieces);
 			loadPieceFile(logs, "mediumBar.piece", pieces);
 			break;
-		case HARD_GAME:
+		case SkillHardGame:
 			loadPieceFile(logs, "bigBar.piece", pieces);
 			loadPieceFile(logs, "bigSquare.piece", pieces);
 			loadPieceFile(logs, "bridge.piece", pieces);

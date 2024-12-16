@@ -8,7 +8,7 @@
 
 void initLogs::initPrefPath()
 {
-	if( const PrefPathFinder prefPath{ORGANIZATION, GAME_NAME} )
+	if( const PrefPathFinder prefPath{Organization, GameName} )
 	{
 		initLogs::openLogFile(prefPath);
 	}
@@ -19,11 +19,11 @@ void initLogs::initPrefPath()
 
 void initLogs::openLogFile(const PrefPathFinder& prefPath)
 {
-	if( AppLogFiles logs{prefPath.getPath(), ERR_LOG_FILE_NAME, WARN_LOG_FILE_NAME} )
+	if( AppLogFiles logs{prefPath.getPath(), ErrorLogFileName, WarningLogFileName} )
 	{
 		initSDL2Comp::context(logs, prefPath);
 	}
 	else{
-		std::cout << "Error: couldn't open '" << prefPath.getPath() + ERR_LOG_FILE_NAME << "' file for logging errors." << std::endl;
+		std::cout << "Error: couldn't open '" << prefPath.getPath() + ErrorLogFileName << "' file for logging errors." << std::endl;
 	}
 }

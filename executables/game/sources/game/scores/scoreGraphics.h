@@ -16,7 +16,7 @@ class ScoresGraphics
 private:
 	TextureCombo title;
 	std::vector< TextureCombo > skillText;
-	std::array< std::vector< TextureCombo >, GAME_MAX > scoresTexts;
+	std::array< std::vector< TextureCombo >, SkillGameMax > scoresTexts;
 
 public:
 	ScoresGraphics(Essentials& essentials, const sdl2::Font& arial, const ScoresData& data);

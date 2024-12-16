@@ -5,7 +5,7 @@
 
 void initRenderer::context(AppLogFiles& logs, const PrefPathFinder& prefPath)
 {
-	sdl2::RendererWindow rndWnd{logs.error, SCREENW, SCREENH, GAME_NAME, ""};
+	sdl2::RendererWindow rndWnd{logs.error, GameWindowWidth, GameWindowHeight, GameName, "textures/elements/square8.png"};
 	
 	if( rndWnd.wasInitializationPerfect() )
 	{

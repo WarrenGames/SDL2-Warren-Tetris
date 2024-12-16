@@ -36,6 +36,7 @@ public:
 	bool isTextureLoaded() const;
 	void draw( sdl2::RendererWindow& rndWnd, int xpos, int ypos);
 	void draw( sdl2::RendererWindow& rndWnd, const Offset& pos);
+	void draw(sdl2::RendererWindow& rndWnd, const TexturePosition& pos);
 	void drawToCenter( sdl2::RendererWindow& rndWnd, int xpos, int ypos);
 	void drawToCenter( sdl2::RendererWindow& rndWnd, const Offset& pos);
 	void setDefaultCoord(int xpos, int ypos);

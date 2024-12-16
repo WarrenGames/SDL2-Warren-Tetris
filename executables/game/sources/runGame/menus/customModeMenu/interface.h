@@ -30,7 +30,7 @@ private:
 	const TextureCombo speedIncrText;
 	const TextureCombo totalTimeText;
 	const TextureCombo hintAboutTime;
-	std::array< HighLightButton, GAME_MAX > startGameButtons;
+	std::array< HighLightButton, SkillGameMax > startGameButtons;
 	HighLightButton goBack;
 
 public:

@@ -12,7 +12,7 @@ GameObject::GameObject(Essentials& essentials, unsigned skillLevel, const TimeOp
 	borderDraw{essentials.logs, essentials.rndWnd},
 	sqrDraw{essentials.logs, essentials.rndWnd},
 	allPieces{essentials.logs, skillLevel},
-	matrix{BIGMAT_WIDTH, BIGMAT_HEIGHT},
+	matrix{BigMatrixWidth, BigMatrixHeight},
 	random{{Difference{0, static_cast<int>(allPieces.size()) - 1}}},
 	currentPiece{random, allPieces},
 	scanLinesInf{},

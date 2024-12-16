@@ -25,7 +25,7 @@ void options::mainLoop(Essentials& essentials, OptionsMenuElements& optionMenu, 
 
 void options::drawEverything(Essentials& essentials, const OptionsMenuElements& optionMenu)
 {
-	essentials.rndWnd.clearScreen(BLACK_COL);
+	essentials.rndWnd.clearScreen(BlackColor);
 	optionMenu.drawButtons(essentials);
 	optionMenu.drawInfoTexts(essentials);
 	essentials.rndWnd.displayRenderer();

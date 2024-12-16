@@ -14,7 +14,7 @@ struct Essentials;
 class ScoresData
 {
 private:
-	std::array< std::vector< Score >, GAME_MAX > scores;
+	std::array< std::vector< Score >, SkillGameMax > scores;
 	
 public:
 	explicit ScoresData(Essentials& essentials, unsigned playerScore, unsigned skill);

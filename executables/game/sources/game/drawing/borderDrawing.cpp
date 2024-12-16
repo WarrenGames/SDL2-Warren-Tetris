@@ -11,14 +11,14 @@ BorderDrawing::BorderDrawing(AppLogFiles& logs, sdl2::RendererWindow& rndWnd):
 void BorderDrawing::drawAllBorders(sdl2::RendererWindow& rndWnd)
 {
 	drawWall(rndWnd, 0);
-	drawWall(rndWnd, (BIGMAT_WIDTH + 1) * SQR_SIZE);
+	drawWall(rndWnd, (BigMatrixWidth + 1) * SQR_SIZE);
 	drawBottomWall(rndWnd);
 }
 
 void BorderDrawing::drawWall(sdl2::RendererWindow& rndWnd, int wall_x_pos)
 {
 	int sprite_y_pos{0};
-	for( std::size_t y_pos{0} ; y_pos < BIGMAT_HEIGHT ; ++y_pos )
+	for( std::size_t y_pos{0} ; y_pos < BigMatrixHeight ; ++y_pos )
 	{
 		if( y_pos <= 2 )
 		{
@@ -33,8 +33,8 @@ void BorderDrawing::drawWall(sdl2::RendererWindow& rndWnd, int wall_x_pos)
 
 void BorderDrawing::drawBottomWall(sdl2::RendererWindow& rndWnd)
 {
-	for( int x_pos{0} ; x_pos < static_cast<int>( BIGMAT_WIDTH ) + 2 ; ++x_pos )
+	for( int x_pos{0} ; x_pos < static_cast<int>( BigMatrixWidth ) + 2 ; ++x_pos )
 	{
-		graySquare.draw(rndWnd, x_pos * SQR_SIZE, SCREENH - SQR_SIZE);
+		graySquare.draw(rndWnd, x_pos * SQR_SIZE, GameWindowHeight - SQR_SIZE);
 	}
 }

@@ -10,12 +10,12 @@ namespace sdl2{ class RendererWindow; }
 class BoolBoxContentDisplay
 {
 private:
-	sdl2::Font arialFont;
+	sdl2::Font font;
 	TextureCombo trueTextTexture;
 	TextureCombo falseTextTexture;
 
 public:
-	explicit BoolBoxContentDisplay(AppLogFiles& logs, sdl2::RendererWindow& rndWnd, unsigned fontSize, const SDL_Rect& boxRect);
+	explicit BoolBoxContentDisplay(AppLogFiles& logs, sdl2::RendererWindow& rndWnd, int fontSize, const SDL_Rect& boxRect);
 	~BoolBoxContentDisplay() = default;
 	BoolBoxContentDisplay( const BoolBoxContentDisplay& ) = delete;
 	BoolBoxContentDisplay& operator= ( const BoolBoxContentDisplay& ) = delete;

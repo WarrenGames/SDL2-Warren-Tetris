@@ -5,30 +5,30 @@
 #include "game/consts/sdlColors.h"
 #include "game/consts/fontsSizes.h"
 
-constexpr int BTN_X_POS = SCREENW / 2 + SQR_SIZE * 2;
+constexpr int BTN_X_POS = GameWindowWidth / 2 + SQR_SIZE * 2;
 constexpr int BTN_W = SQR_SIZE * 3;
 constexpr int BTN_H = SQR_SIZE; 
 
-constexpr int TXT_X_POS = SCREENW / 2 - SQR_SIZE * 6;
+constexpr int TXT_X_POS = GameWindowWidth / 2 - SQR_SIZE * 6;
 
 OptionsMenuElements::OptionsMenuElements(Essentials& essentials):
 	keycodesData{essentials.logs, essentials.prefPath},
-	arial{essentials.logs.error, ARIALFONTPATH, FONT_MEDIUM_SIZE},
+	arial{essentials.logs.error, GameFontPath, FontMediumSize},
 	functionsNames{
-		TextureCombo{essentials.logs, essentials.rndWnd, arial, "Move to left:", WHITE_COL, TexturePosition{TXT_X_POS, SQR_SIZE*4+SQR_SIZE/2, false, true} },
-		TextureCombo{essentials.logs, essentials.rndWnd, arial, "Move to right:", WHITE_COL, TexturePosition{TXT_X_POS, SQR_SIZE*6+SQR_SIZE/2, false, true} },
-		TextureCombo{essentials.logs, essentials.rndWnd, arial, "Move downer:", WHITE_COL, TexturePosition{TXT_X_POS, SQR_SIZE*8+SQR_SIZE/2, false, true} },
-		TextureCombo{essentials.logs, essentials.rndWnd, arial, "Clockwise rotation:", WHITE_COL, TexturePosition{TXT_X_POS, SQR_SIZE*10+SQR_SIZE/2, false, true} },
-		TextureCombo{essentials.logs, essentials.rndWnd, arial, "Anti-clockwise rotation:", WHITE_COL, TexturePosition{TXT_X_POS, SQR_SIZE*12+SQR_SIZE/2, false, true} }
+		TextureCombo{essentials.logs, essentials.rndWnd, arial, "Move to left:", WhiteColor, TexturePosition{TXT_X_POS, SQR_SIZE*4+SQR_SIZE/2, false, true} },
+		TextureCombo{essentials.logs, essentials.rndWnd, arial, "Move to right:", WhiteColor, TexturePosition{TXT_X_POS, SQR_SIZE*6+SQR_SIZE/2, false, true} },
+		TextureCombo{essentials.logs, essentials.rndWnd, arial, "Move downer:", WhiteColor, TexturePosition{TXT_X_POS, SQR_SIZE*8+SQR_SIZE/2, false, true} },
+		TextureCombo{essentials.logs, essentials.rndWnd, arial, "Clockwise rotation:", WhiteColor, TexturePosition{TXT_X_POS, SQR_SIZE*10+SQR_SIZE/2, false, true} },
+		TextureCombo{essentials.logs, essentials.rndWnd, arial, "Anti-clockwise rotation:", WhiteColor, TexturePosition{TXT_X_POS, SQR_SIZE*12+SQR_SIZE/2, false, true} }
 	},
 	keycodesBtn{
-		HighLightButton{essentials.logs, essentials.rndWnd, arial, keycodesData.getStr(KEY::MV_PIECE_LEFT), WHITE_COL, SDL_Rect{BTN_X_POS, SQR_SIZE*4, BTN_W, BTN_H}, GREEN_COL},
-		HighLightButton{essentials.logs, essentials.rndWnd, arial, keycodesData.getStr(KEY::MV_PIECE_RIGHT), WHITE_COL, SDL_Rect{BTN_X_POS, SQR_SIZE*6, BTN_W, BTN_H}, GREEN_COL},
-		HighLightButton{essentials.logs, essentials.rndWnd, arial, keycodesData.getStr(KEY::DOWN_FASTER), WHITE_COL, SDL_Rect{BTN_X_POS, SQR_SIZE*8, BTN_W, BTN_H}, GREEN_COL},
-		HighLightButton{essentials.logs, essentials.rndWnd, arial, keycodesData.getStr(KEY::ROT_PIECE_CWISE), WHITE_COL, SDL_Rect{BTN_X_POS, SQR_SIZE*10, BTN_W, BTN_H}, GREEN_COL},
-		HighLightButton{essentials.logs, essentials.rndWnd, arial, keycodesData.getStr(KEY::ROT_PIECE_ANTICWISE), WHITE_COL, SDL_Rect{BTN_X_POS, SQR_SIZE*12, BTN_W, BTN_H}, GREEN_COL}
+		HighLightButton{essentials.logs, essentials.rndWnd, arial, keycodesData.getStr(KEY::MV_PIECE_LEFT), WhiteColor, SDL_Rect{BTN_X_POS, SQR_SIZE*4, BTN_W, BTN_H}, GreenColor},
+		HighLightButton{essentials.logs, essentials.rndWnd, arial, keycodesData.getStr(KEY::MV_PIECE_RIGHT), WhiteColor, SDL_Rect{BTN_X_POS, SQR_SIZE*6, BTN_W, BTN_H}, GreenColor},
+		HighLightButton{essentials.logs, essentials.rndWnd, arial, keycodesData.getStr(KEY::DOWN_FASTER), WhiteColor, SDL_Rect{BTN_X_POS, SQR_SIZE*8, BTN_W, BTN_H}, GreenColor},
+		HighLightButton{essentials.logs, essentials.rndWnd, arial, keycodesData.getStr(KEY::ROT_PIECE_CWISE), WhiteColor, SDL_Rect{BTN_X_POS, SQR_SIZE*10, BTN_W, BTN_H}, GreenColor},
+		HighLightButton{essentials.logs, essentials.rndWnd, arial, keycodesData.getStr(KEY::ROT_PIECE_ANTICWISE), WhiteColor, SDL_Rect{BTN_X_POS, SQR_SIZE*12, BTN_W, BTN_H}, GreenColor}
 	},
-	pressANewKey{essentials.logs, essentials.rndWnd, arial, "Press a new key.", WHITE_COL, TexturePosition{SCREENW/2, SCREENH - SQR_SIZE * 2, true, true} }
+	pressANewKey{essentials.logs, essentials.rndWnd, arial, "Press a new key.", WhiteColor, TexturePosition{GameWindowWidth/2, GameWindowHeight - SQR_SIZE * 2, true, true} }
 {
 	
 }
@@ -92,7 +92,7 @@ void OptionsMenuElements::updateModifications(Essentials& essentials, bool& canW
 	if( keycode != SDLK_ESCAPE )
 	{
 		keycodesData.keycodes[keycodeNum] = keycode;
-		keycodesBtn[keycodeNum].changeText(essentials.logs, essentials.rndWnd, arial, keycodesData.getStr(keycodeNum), WHITE_COL);
+		keycodesBtn[keycodeNum].changeText(essentials.logs, essentials.rndWnd, arial, keycodesData.getStr(keycodeNum), WhiteColor);
 		canWaitInput = false;
 	}
 }

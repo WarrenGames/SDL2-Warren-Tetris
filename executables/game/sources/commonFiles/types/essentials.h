@@ -15,7 +15,12 @@ struct Essentials
 	UserInput inp;
 	AccurateTimeDelay drawFrequency;
 	
-	Essentials(AppLogFiles& logs_, const PrefPathFinder& prefPath_, sdl2::RendererWindow& rndWnd_);
+	explicit Essentials(AppLogFiles& logs_, const PrefPathFinder& prefPath_, sdl2::RendererWindow& rndWnd_);
+	~Essentials() = default;
+	Essentials( const Essentials& ) = delete;
+	Essentials& operator= ( const Essentials& ) = delete;
+	Essentials( Essentials&& ) = delete;
+	Essentials& operator= ( Essentials&& ) = delete;
 };
 
 #endif //ESSENTIALS_STRUCT_H

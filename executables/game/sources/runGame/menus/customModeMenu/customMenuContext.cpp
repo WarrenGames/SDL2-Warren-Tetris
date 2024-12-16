@@ -21,9 +21,9 @@ void customMenu::mainLoop(Essentials& essentials, Interface& interface, TimeOpti
 		customMenu::update(essentials, interface, quitContext);
 		customMenu::drawEverything(essentials, interface);
 		essentials.inp.setMouseLeftButtonFalse();
-		startCustomGame(essentials, EASY_GAME, timeOptions, interface, quitContext);
-		startCustomGame(essentials, INTERMEDIATE_GAME, timeOptions, interface, quitContext);
-		startCustomGame(essentials, HARD_GAME, timeOptions, interface, quitContext);
+		startCustomGame(essentials, SkillEasyGame, timeOptions, interface, quitContext);
+		startCustomGame(essentials, SkillIntermediateGame, timeOptions, interface, quitContext);
+		startCustomGame(essentials, SkillHardGame, timeOptions, interface, quitContext);
 	}
 }
 
@@ -47,7 +47,7 @@ void customMenu::drawEverything(Essentials& essentials, Interface& interface)
 {
 	if( essentials.drawFrequency.hasTimeElapsed( std::chrono::milliseconds{16} ) )
 	{
-		essentials.rndWnd.clearScreen(BLACK_COL);
+		essentials.rndWnd.clearScreen(BlackColor);
 		interface.drawEverything(essentials);
 		essentials.rndWnd.displayRenderer();
 		essentials.drawFrequency.joinTimePoints();

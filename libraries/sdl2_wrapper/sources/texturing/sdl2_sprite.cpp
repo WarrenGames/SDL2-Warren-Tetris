@@ -95,6 +95,12 @@ void sdl2::Sprite::draw(sdl2::RendererWindow& rndWnd, const Offset& pos)
 	SDL_RenderCopy(rndWnd.getRend(), texture->get(), &srcRect, &destRect);
 }
 
+void sdl2::Sprite::draw(sdl2::RendererWindow& rndWnd, const TexturePosition& pos)
+{
+	setTexturePosition(pos);
+	SDL_RenderCopy(rndWnd.getRend(), texture->get(), &srcRect, &destRect);
+}
+
 void sdl2::Sprite::drawToCenter(sdl2::RendererWindow& rndWnd, int xpos, int ypos)
 {
 	center_on_x(xpos);

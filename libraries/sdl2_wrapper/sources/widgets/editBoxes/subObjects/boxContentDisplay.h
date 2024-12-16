@@ -11,11 +11,11 @@ namespace sdl2{ class RendererWindow; }
 class BoxContentDisplay
 {
 private:
-	sdl2::Font arialFont;
+	sdl2::Font font;
 	TextureCombo currentValue;
 
 public:
-	explicit BoxContentDisplay(AppLogFiles& logs, sdl2::RendererWindow& rndWnd, unsigned int fontSize, const std::string& valueInText);
+	explicit BoxContentDisplay(AppLogFiles& logs, sdl2::RendererWindow& rndWnd, int fontSize, const std::string& valueInText);
 	~BoxContentDisplay() = default;
 	BoxContentDisplay( const BoxContentDisplay& ) = delete;
 	BoxContentDisplay& operator= ( const BoxContentDisplay& ) = delete;

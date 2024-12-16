@@ -14,7 +14,7 @@ void bestScores::bestScoresContext(Essentials& essentials, const PlayerScore& pl
 {
 	bestScores::createScoresFilesIfMissing(essentials);
 	bool quitScoreContext{false};
-	const sdl2::Font arial{essentials.logs.error, ARIALFONTPATH, FONT_BIG_SIZE};
+	const sdl2::Font arial{essentials.logs.error, GameFontPath, FontBigSize};
 	ScoresData scoresData{essentials, playerScore.getScore(), skill};
 	ScoresGraphics graphics{essentials, arial, scoresData};
 	
@@ -43,7 +43,7 @@ void bestScores::drawAll(Essentials& essentials, const ScoresGraphics& scores)
 {
 	if( essentials.drawFrequency.hasTimeElapsed( std::chrono::milliseconds{16} ) )
 	{
-		essentials.rndWnd.clearScreen(BLACK_COL);
+		essentials.rndWnd.clearScreen(BlackColor);
 		scores.drawTexts(essentials);
 		essentials.rndWnd.displayRenderer();
 		essentials.drawFrequency.joinTimePoints();
@@ -52,9 +52,9 @@ void bestScores::drawAll(Essentials& essentials, const ScoresGraphics& scores)
 
 void bestScores::createScoresFilesIfMissing(Essentials& essentials)
 {
-	bestScores::createSingleScoreFile(essentials, essentials.prefPath.getPath() + EASY_FILE_NAME);
-	bestScores::createSingleScoreFile(essentials, essentials.prefPath.getPath() + INTERM_FILE_NAME);
-	bestScores::createSingleScoreFile(essentials, essentials.prefPath.getPath() + HARD_FILE_NAME);
+	bestScores::createSingleScoreFile(essentials, essentials.prefPath.getPath() + ScoreEasyFileName);
+	bestScores::createSingleScoreFile(essentials, essentials.prefPath.getPath() + ScoreIntermediateFileName);
+	bestScores::createSingleScoreFile(essentials, essentials.prefPath.getPath() + ScoreHardFileName);
 }
 
 void bestScores::createSingleScoreFile(Essentials& essentials, const std::string& fileFullPath)

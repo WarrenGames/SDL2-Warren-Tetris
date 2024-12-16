@@ -10,7 +10,7 @@ class Piece
 {
 private:
 	std::size_t colorIndex;
-	std::array<MatrixTemp2D<SquareData>, ROT_IND::MAX > pieceMatrices;
+	std::array<MatrixTemp2D<SquareData>, RotationIndex::Max > pieceMatrices;
 
 public:
 	explicit Piece(const MatrixTemp2D<SquareData>& northMatrix, std::size_t color);
