@@ -10,6 +10,11 @@ struct ScanLinesInfos
 	std::size_t bottomLine;
 		   
 	ScanLinesInfos();
+	~ScanLinesInfos() = default;
+	ScanLinesInfos( const ScanLinesInfos& ) = default;
+	ScanLinesInfos& operator= ( const ScanLinesInfos& ) = default;
+	ScanLinesInfos( ScanLinesInfos&& ) = default;
+	ScanLinesInfos& operator= ( ScanLinesInfos&& ) = default;
 };
 
 #endif //SCAN_LINES_INFOS_H

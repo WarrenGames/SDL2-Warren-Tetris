@@ -24,12 +24,12 @@ private:
 	UintEditBox timeMaxBox;
 	UintEditBox speedIncrBox;
 	UintEditBox totalTimeBox;
-	const sdl2::Font arial;
-	const TextureCombo timeMinText;
-	const TextureCombo timeMaxText;
-	const TextureCombo speedIncrText;
-	const TextureCombo totalTimeText;
-	const TextureCombo hintAboutTime;
+	sdl2::Font font;
+	TextureCombo timeMinText;
+	TextureCombo timeMaxText;
+	TextureCombo speedIncrText;
+	TextureCombo totalTimeText;
+	TextureCombo hintAboutTime;
 	std::array< HighLightButton, SkillGameMax > startGameButtons;
 	HighLightButton goBack;
 
@@ -38,6 +38,8 @@ public:
 	~Interface() = default;
 	Interface( const Interface& ) = delete;
 	Interface& operator= ( const Interface& ) = delete;
+	Interface( Interface&& ) = default;
+	Interface& operator= ( Interface&& ) = default;
 	void drawEverything(Essentials& essentials) const;
 	void drawHighlightButtons(Essentials& essentials) const;
 	

@@ -10,7 +10,7 @@ struct TimeOptions;
 class SpeedInterface
 {
 private:
-	const sdl2::Font arial;
+	sdl2::Font font;
 	double speed;
 	bool hasSpeedChanged;
 	TextureCombo speedText;
@@ -20,6 +20,8 @@ public:
 	~SpeedInterface() = default;
 	SpeedInterface( const SpeedInterface& ) = delete;
 	SpeedInterface& operator= ( const SpeedInterface& ) = delete;
+	SpeedInterface( SpeedInterface&& ) = default;
+	SpeedInterface& operator= ( SpeedInterface&& ) = default;
 	
 	void setChangement();
 	void resetText(Essentials& essentials, const TimeOptions& timeOptions);

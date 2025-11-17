@@ -14,6 +14,11 @@ struct TimeOptions
 	unsigned pieceFallChangeDelay;
 	
 	TimeOptions(double delay);
+	~TimeOptions() = default;
+	TimeOptions( const TimeOptions& ) = default;
+	TimeOptions& operator= ( const TimeOptions& ) = default;
+	TimeOptions( TimeOptions&& ) = default;
+	TimeOptions& operator= ( TimeOptions&& ) = default;
 	
 	void changePiecesSpeedIfAny();
 	void setPieceFallChangeDelay();

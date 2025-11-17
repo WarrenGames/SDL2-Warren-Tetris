@@ -8,6 +8,11 @@ struct Score
 	
 	Score();
 	Score(unsigned playerScore, bool isNewScore);
+	~Score() = default;
+	Score( const Score& ) = default;
+	Score& operator= ( const Score& ) = default;
+	Score( Score&& ) = default;
+	Score& operator= ( Score&& ) = default;
 };
 
 #endif //SCORES_INFOS_H

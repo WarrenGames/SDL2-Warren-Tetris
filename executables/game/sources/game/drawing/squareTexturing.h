@@ -15,8 +15,10 @@ private:
 public:
 	explicit SquaresDrawing(AppLogFiles& logs, sdl2::RendererWindow& rndWnd);
 	~SquaresDrawing() = default;
-	SquaresDrawing( const SquaresDrawing& Copy ) = delete;
-	SquaresDrawing& operator= ( const SquaresDrawing& Copy ) = delete;
+	SquaresDrawing( const SquaresDrawing& ) = delete;
+	SquaresDrawing& operator= ( const SquaresDrawing& ) = delete;
+	SquaresDrawing( SquaresDrawing&& ) = default;
+	SquaresDrawing& operator= ( SquaresDrawing&& ) = default;
 	
 	void drawSquare(std::size_t colorIndex, int posx, int posy, sdl2::RendererWindow& render);
 };

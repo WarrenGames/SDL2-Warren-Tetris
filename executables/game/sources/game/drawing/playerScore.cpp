@@ -8,8 +8,8 @@
 PlayerScore::PlayerScore(AppLogFiles& logs, sdl2::RendererWindow& rndWnd):
 	canUpdateScore{false},
 	score{0},
-	arial{logs.error, GameFontPath, 24},
-	scoreTexture{logs, rndWnd, arial, "Score: " + std::to_string(score), WhiteColor, TexturePosition{ (BigMatrixWidth + 4) * SQR_SIZE, 6 * SQR_SIZE, false, true} }
+	font{logs.error, GameFontPath, 24},
+	scoreTexture{logs, rndWnd, font, "Score: " + std::to_string(score), WhiteColor, TexturePosition{ (BigMatrixWidth + 4) * SQR_SIZE, 6 * SQR_SIZE, false, true} }
 {
 }
 
@@ -17,7 +17,7 @@ void PlayerScore::updateScoreText(AppLogFiles& logs, sdl2::RendererWindow& rndWn
 {
 	if( canUpdateScore )
 	{
-		scoreTexture.texture.loadBlendedText(logs, rndWnd, arial, "Score: " + std::to_string(score), WhiteColor); 
+		scoreTexture.texture.loadBlendedText(logs, rndWnd, font, "Score: " + std::to_string(score), WhiteColor); 
 		scoreTexture.resetSpritePosition( TexturePosition{ (BigMatrixWidth + 4) * SQR_SIZE, 6 * SQR_SIZE, false, true} );
 		canUpdateScore = false;
 	}

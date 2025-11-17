@@ -15,6 +15,10 @@ struct ActivePiece
 	int	posy;
 	
 	explicit ActivePiece(RandomSingleton& rand, const LoadedPieces& allPieces);
+	~ActivePiece() = default;
+	ActivePiece( const ActivePiece& ) = default;
+	ActivePiece& operator= ( const ActivePiece& ) = default;
+	
 	void resetPieceValues(RandomSingleton& rand, const LoadedPieces& pieces);
 };
 

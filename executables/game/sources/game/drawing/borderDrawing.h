@@ -15,8 +15,10 @@ private:
 public:
 	explicit BorderDrawing(AppLogFiles& logs, sdl2::RendererWindow& rndWnd);
 	~BorderDrawing() = default;
-	BorderDrawing( const BorderDrawing& Copy ) = delete;
-	BorderDrawing& operator= ( const BorderDrawing& Copy ) = delete;
+	BorderDrawing( const BorderDrawing& ) = delete;
+	BorderDrawing& operator= ( const BorderDrawing& ) = delete;
+	BorderDrawing( BorderDrawing&& ) = default;
+	BorderDrawing& operator= ( BorderDrawing&& ) = default;
 	
 	void drawAllBorders(sdl2::RendererWindow& rndWnd);
 	void drawWall(sdl2::RendererWindow& rndWnd, int wall_x_pos);

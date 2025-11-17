@@ -14,13 +14,15 @@ class RandomSingleton
 {
 private:
 	std::default_random_engine e1;
-	
 	std::vector<std::uniform_int_distribution<int> > distributions;
 
 public:
-	RandomSingleton(std::vector<Difference> DistribValues);
-	RandomSingleton() = delete;
+	explicit RandomSingleton(std::vector<Difference> DistribValues);
 	~RandomSingleton() = default;
+	RandomSingleton( const RandomSingleton& ) = delete;
+	RandomSingleton& operator= ( const RandomSingleton& ) = delete;
+	RandomSingleton( RandomSingleton&& ) = default;
+	RandomSingleton& operator= ( RandomSingleton&& ) = default;
 	
 	unsigned getRandomNumber(std::size_t distribIndex);
 };

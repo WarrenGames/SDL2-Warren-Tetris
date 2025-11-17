@@ -34,8 +34,14 @@ struct GameObject
 	ChronoTimer chronoTimer;
 	SpeedInterface speedInterface;
 	
-//Member functions	
-	GameObject(Essentials& essentials, unsigned skillLevel, const TimeOptions& timeOptions);
+
+	explicit GameObject(Essentials& essentials, unsigned skillLevel, const TimeOptions& timeOptions);
+	~GameObject() = default;
+	GameObject( const GameObject& ) = delete;
+	GameObject& operator= ( const GameObject& ) = delete;
+	GameObject( GameObject&& ) = default;
+	GameObject& operator= ( GameObject&& ) = default;
+	
 	const Piece& getCurrentPiece() const;
 	Piece& getCurrentPiece();
 	

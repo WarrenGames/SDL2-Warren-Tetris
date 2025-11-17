@@ -14,9 +14,9 @@ void bestScores::bestScoresContext(Essentials& essentials, const PlayerScore& pl
 {
 	bestScores::createScoresFilesIfMissing(essentials);
 	bool quitScoreContext{false};
-	const sdl2::Font arial{essentials.logs.error, GameFontPath, FontBigSize};
+	const sdl2::Font font{essentials.logs.error, GameFontPath, FontBigSize};
 	ScoresData scoresData{essentials, playerScore.getScore(), skill};
-	ScoresGraphics graphics{essentials, arial, scoresData};
+	ScoresGraphics graphics{essentials, font, scoresData};
 	
 	bestScores::mainLoop(essentials, graphics, quitScoreContext);
 	

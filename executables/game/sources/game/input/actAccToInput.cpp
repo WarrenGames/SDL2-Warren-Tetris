@@ -15,60 +15,60 @@ void actAccToPlayerInput(UserInput& inp, GameObject& gameObj)
 
 void moveCurrentPieceToLeft(UserInput& inp, GameObject& gameObj)
 {
-	if( inp.getKeyState(KEY::MV_PIECE_LEFT) )
+	if( inp.getKeyState(Key::MovePieceLeft) )
 	{
 		if( ! isPieceInCollisionWithMat(gameObj, -1, 0) && ! isPieceInCollisionWVerticalBorders(gameObj, -1))
 		{
 			gameObj.currentPiece.posx--;
 		}
-		inp.setKeyState(KEY::MV_PIECE_LEFT, false);
+		inp.setKeyState(Key::MovePieceLeft, false);
 	}
 }
 
 void moveCurrentPieceToRight(UserInput& inp, GameObject& gameObj)
 {
-	if( inp.getKeyState(KEY::MV_PIECE_RIGHT) )
+	if( inp.getKeyState(Key::MovePieceRight) )
 	{
 		if( ! isPieceInCollisionWithMat(gameObj, 1, 0) && ! isPieceInCollisionWVerticalBorders(gameObj, 1) )
 		{
 			gameObj.currentPiece.posx++;
 		}
-		inp.setKeyState(KEY::MV_PIECE_RIGHT, false);
+		inp.setKeyState(Key::MovePieceRight, false);
 	}
 }
 
 void moveCurrentPieceDowner(UserInput& inp, GameObject& gameObj)
 {
-	if( inp.getKeyState(KEY::DOWN_FASTER) )
+	if( inp.getKeyState(Key::DownFaster) )
 	{
 		if( ! isPieceInCollisionWithMat(gameObj, 0, 1) && ! hasPieceReachedBottom(gameObj) )
 		{
 			gameObj.currentPiece.posy++;
 		}
-		inp.setKeyState(KEY::DOWN_FASTER, false);
+		inp.setKeyState(Key::DownFaster, false);
 	}
 }
 
 void rotateClockwisePiece(UserInput& inp, GameObject& gameObj)
 {
-	if( inp.getKeyState(KEY::ROT_PIECE_CWISE) )
+	if( inp.getKeyState(Key::RotatePieceClockwise) )
 	{
 		if( pieceCanRotateClockwise(gameObj.currentPiece, gameObj.getCurrentPiece(), gameObj.matrix) )
 		{
 			rotateIndexClockwise(gameObj.currentPiece.rotateIndex);
 		}
-		inp.setKeyState(KEY::ROT_PIECE_CWISE, false);
+		inp.setKeyState(Key::RotatePieceClockwise, false);
 	}
 }
 
 void rotateAntiClockwisePiece(UserInput& inp, GameObject& gameObj)
 {
-	if( inp.getKeyState(KEY::ROT_PIECE_ANTICWISE) )
+	if( inp.getKeyState(Key::RotatePieceAntiClockWise) )
 	{
 		if( pieceCanRotateAntiClockwise(gameObj.currentPiece, gameObj.getCurrentPiece(), gameObj.matrix) )
 		{
 			rotateIndexAntiClockwise(gameObj.currentPiece.rotateIndex);
 		}
-		inp.setKeyState(KEY::ROT_PIECE_ANTICWISE, false);
+		inp.setKeyState(Key::RotatePieceAntiClockWise, false);
 	}
 }

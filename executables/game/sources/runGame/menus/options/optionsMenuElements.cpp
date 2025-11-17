@@ -13,22 +13,22 @@ constexpr int TXT_X_POS = GameWindowWidth / 2 - SQR_SIZE * 6;
 
 OptionsMenuElements::OptionsMenuElements(Essentials& essentials):
 	keycodesData{essentials.logs, essentials.prefPath},
-	arial{essentials.logs.error, GameFontPath, FontMediumSize},
+	font{essentials.logs.error, GameFontPath, FontMediumSize},
 	functionsNames{
-		TextureCombo{essentials.logs, essentials.rndWnd, arial, "Move to left:", WhiteColor, TexturePosition{TXT_X_POS, SQR_SIZE*4+SQR_SIZE/2, false, true} },
-		TextureCombo{essentials.logs, essentials.rndWnd, arial, "Move to right:", WhiteColor, TexturePosition{TXT_X_POS, SQR_SIZE*6+SQR_SIZE/2, false, true} },
-		TextureCombo{essentials.logs, essentials.rndWnd, arial, "Move downer:", WhiteColor, TexturePosition{TXT_X_POS, SQR_SIZE*8+SQR_SIZE/2, false, true} },
-		TextureCombo{essentials.logs, essentials.rndWnd, arial, "Clockwise rotation:", WhiteColor, TexturePosition{TXT_X_POS, SQR_SIZE*10+SQR_SIZE/2, false, true} },
-		TextureCombo{essentials.logs, essentials.rndWnd, arial, "Anti-clockwise rotation:", WhiteColor, TexturePosition{TXT_X_POS, SQR_SIZE*12+SQR_SIZE/2, false, true} }
+		TextureCombo{essentials.logs, essentials.rndWnd, font, "Move to left:", WhiteColor, TexturePosition{TXT_X_POS, SQR_SIZE*4+SQR_SIZE/2, false, true} },
+		TextureCombo{essentials.logs, essentials.rndWnd, font, "Move to right:", WhiteColor, TexturePosition{TXT_X_POS, SQR_SIZE*6+SQR_SIZE/2, false, true} },
+		TextureCombo{essentials.logs, essentials.rndWnd, font, "Move downer:", WhiteColor, TexturePosition{TXT_X_POS, SQR_SIZE*8+SQR_SIZE/2, false, true} },
+		TextureCombo{essentials.logs, essentials.rndWnd, font, "Clockwise rotation:", WhiteColor, TexturePosition{TXT_X_POS, SQR_SIZE*10+SQR_SIZE/2, false, true} },
+		TextureCombo{essentials.logs, essentials.rndWnd, font, "Anti-clockwise rotation:", WhiteColor, TexturePosition{TXT_X_POS, SQR_SIZE*12+SQR_SIZE/2, false, true} }
 	},
 	keycodesBtn{
-		HighLightButton{essentials.logs, essentials.rndWnd, arial, keycodesData.getStr(KEY::MV_PIECE_LEFT), WhiteColor, SDL_Rect{BTN_X_POS, SQR_SIZE*4, BTN_W, BTN_H}, GreenColor},
-		HighLightButton{essentials.logs, essentials.rndWnd, arial, keycodesData.getStr(KEY::MV_PIECE_RIGHT), WhiteColor, SDL_Rect{BTN_X_POS, SQR_SIZE*6, BTN_W, BTN_H}, GreenColor},
-		HighLightButton{essentials.logs, essentials.rndWnd, arial, keycodesData.getStr(KEY::DOWN_FASTER), WhiteColor, SDL_Rect{BTN_X_POS, SQR_SIZE*8, BTN_W, BTN_H}, GreenColor},
-		HighLightButton{essentials.logs, essentials.rndWnd, arial, keycodesData.getStr(KEY::ROT_PIECE_CWISE), WhiteColor, SDL_Rect{BTN_X_POS, SQR_SIZE*10, BTN_W, BTN_H}, GreenColor},
-		HighLightButton{essentials.logs, essentials.rndWnd, arial, keycodesData.getStr(KEY::ROT_PIECE_ANTICWISE), WhiteColor, SDL_Rect{BTN_X_POS, SQR_SIZE*12, BTN_W, BTN_H}, GreenColor}
+		HighLightButton{essentials.logs, essentials.rndWnd, font, keycodesData.getStr(Key::MovePieceLeft), WhiteColor, SDL_Rect{BTN_X_POS, SQR_SIZE*4, BTN_W, BTN_H}, GreenColor},
+		HighLightButton{essentials.logs, essentials.rndWnd, font, keycodesData.getStr(Key::MovePieceRight), WhiteColor, SDL_Rect{BTN_X_POS, SQR_SIZE*6, BTN_W, BTN_H}, GreenColor},
+		HighLightButton{essentials.logs, essentials.rndWnd, font, keycodesData.getStr(Key::DownFaster), WhiteColor, SDL_Rect{BTN_X_POS, SQR_SIZE*8, BTN_W, BTN_H}, GreenColor},
+		HighLightButton{essentials.logs, essentials.rndWnd, font, keycodesData.getStr(Key::RotatePieceClockwise), WhiteColor, SDL_Rect{BTN_X_POS, SQR_SIZE*10, BTN_W, BTN_H}, GreenColor},
+		HighLightButton{essentials.logs, essentials.rndWnd, font, keycodesData.getStr(Key::RotatePieceAntiClockWise), WhiteColor, SDL_Rect{BTN_X_POS, SQR_SIZE*12, BTN_W, BTN_H}, GreenColor}
 	},
-	pressANewKey{essentials.logs, essentials.rndWnd, arial, "Press a new key.", WhiteColor, TexturePosition{GameWindowWidth/2, GameWindowHeight - SQR_SIZE * 2, true, true} }
+	pressANewKey{essentials.logs, essentials.rndWnd, font, "Press a new key.", WhiteColor, TexturePosition{GameWindowWidth/2, GameWindowHeight - SQR_SIZE * 2, true, true} }
 {
 	
 }
@@ -59,7 +59,7 @@ void OptionsMenuElements::drawButtons(Essentials& essentials) const
 
 void OptionsMenuElements::changeGameInput(Essentials& essentials)
 {
-	for( std::size_t keycode{0} ; keycode < KEY::INP_MAX ; ++keycode )
+	for( std::size_t keycode{0} ; keycode < Key::InputMax ; ++keycode )
 	{
 		if( keycodesBtn[keycode].buttonClicked() )
 		{
@@ -92,7 +92,7 @@ void OptionsMenuElements::updateModifications(Essentials& essentials, bool& canW
 	if( keycode != SDLK_ESCAPE )
 	{
 		keycodesData.keycodes[keycodeNum] = keycode;
-		keycodesBtn[keycodeNum].changeText(essentials.logs, essentials.rndWnd, arial, keycodesData.getStr(keycodeNum), WhiteColor);
+		keycodesBtn[keycodeNum].changeText(essentials.logs, essentials.rndWnd, font, keycodesData.getStr(keycodeNum), WhiteColor);
 		canWaitInput = false;
 	}
 }

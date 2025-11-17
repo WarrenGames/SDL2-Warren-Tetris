@@ -21,19 +21,19 @@ customMenu::Interface::Interface(Essentials& essentials):
 	timeMaxBox{essentials.logs, essentials.rndWnd, SDL_Rect{ BOX_X, SQR_SIZE * 5, BOX_W, BOX_H}, FontMediumSize, pieceFallTimeMax},
 	speedIncrBox{essentials.logs, essentials.rndWnd, SDL_Rect{ BOX_X, SQR_SIZE * 7, BOX_W, BOX_H}, FontMediumSize, pieceSpeedIncr},
 	totalTimeBox{essentials.logs, essentials.rndWnd, SDL_Rect{ BOX_X, SQR_SIZE * 9, BOX_W, BOX_H}, FontMediumSize, pieceFallTotalTime},
-	arial{essentials.logs.error, GameFontPath, FontMediumSize},
-	timeMinText{essentials.logs, essentials.rndWnd, arial, "End speed time: ", WhiteColor, TexturePosition{SQR_SIZE, SQR_SIZE * 3 + SQR_SIZE / 2, false, true} },
-	timeMaxText{essentials.logs, essentials.rndWnd, arial, "Start speed time: ", WhiteColor, TexturePosition{SQR_SIZE, SQR_SIZE * 5 + SQR_SIZE / 2, false, true} },
-	speedIncrText{essentials.logs, essentials.rndWnd, arial, "Speed increment: ", WhiteColor, TexturePosition{SQR_SIZE, SQR_SIZE * 7 + SQR_SIZE / 2, false, true} },
-	totalTimeText{essentials.logs, essentials.rndWnd, arial, "Total time (seconds): ", WhiteColor, TexturePosition{SQR_SIZE, SQR_SIZE * 9 + SQR_SIZE / 2, false, true} },
-	hintAboutTime{essentials.logs, essentials.rndWnd, arial, "About 'start' and 'end' speed time: the higher the value, the slower the pieces fall.", WhiteColor, 
+	font{essentials.logs.error, GameFontPath, FontMediumSize},
+	timeMinText{essentials.logs, essentials.rndWnd, font, "End speed time: ", WhiteColor, TexturePosition{SQR_SIZE, SQR_SIZE * 3 + SQR_SIZE / 2, false, true} },
+	timeMaxText{essentials.logs, essentials.rndWnd, font, "Start speed time: ", WhiteColor, TexturePosition{SQR_SIZE, SQR_SIZE * 5 + SQR_SIZE / 2, false, true} },
+	speedIncrText{essentials.logs, essentials.rndWnd, font, "Speed increment: ", WhiteColor, TexturePosition{SQR_SIZE, SQR_SIZE * 7 + SQR_SIZE / 2, false, true} },
+	totalTimeText{essentials.logs, essentials.rndWnd, font, "Total time (seconds): ", WhiteColor, TexturePosition{SQR_SIZE, SQR_SIZE * 9 + SQR_SIZE / 2, false, true} },
+	hintAboutTime{essentials.logs, essentials.rndWnd, font, "About 'start' and 'end' speed time: the higher the value, the slower the pieces fall.", WhiteColor, 
 						TexturePosition{SQR_SIZE, GameWindowHeight - SQR_SIZE * 4, false, true} },
 	startGameButtons{
-		HighLightButton{essentials.logs, essentials.rndWnd, arial, "Easy", WhiteColor, SDL_Rect{ SQR_SIZE * 4 - BUTTON_W / 2, GameWindowHeight - SQR_SIZE * 2, BUTTON_W, SQR_SIZE}, GreenColor},
-		HighLightButton{essentials.logs, essentials.rndWnd, arial, "Intermediate", WhiteColor, SDL_Rect{ GameWindowWidth / 2 - BUTTON_W / 2, GameWindowHeight - SQR_SIZE * 2, BUTTON_W, SQR_SIZE}, GreenColor},
-		HighLightButton{essentials.logs, essentials.rndWnd, arial, "Hard", WhiteColor, SDL_Rect{ GameWindowWidth - SQR_SIZE * 4 - BUTTON_W / 2, GameWindowHeight - SQR_SIZE * 2, BUTTON_W, SQR_SIZE}, GreenColor}
+		HighLightButton{essentials.logs, essentials.rndWnd, font, "Easy", WhiteColor, SDL_Rect{ SQR_SIZE * 4 - BUTTON_W / 2, GameWindowHeight - SQR_SIZE * 2, BUTTON_W, SQR_SIZE}, GreenColor},
+		HighLightButton{essentials.logs, essentials.rndWnd, font, "Intermediate", WhiteColor, SDL_Rect{ GameWindowWidth / 2 - BUTTON_W / 2, GameWindowHeight - SQR_SIZE * 2, BUTTON_W, SQR_SIZE}, GreenColor},
+		HighLightButton{essentials.logs, essentials.rndWnd, font, "Hard", WhiteColor, SDL_Rect{ GameWindowWidth - SQR_SIZE * 4 - BUTTON_W / 2, GameWindowHeight - SQR_SIZE * 2, BUTTON_W, SQR_SIZE}, GreenColor}
 	},
-	goBack{essentials.logs, essentials.rndWnd, arial, "Go back", WhiteColor, SDL_Rect{ GameWindowWidth - BUTTON_W, SQR_SIZE, BUTTON_W, SQR_SIZE}, GreenColor}
+	goBack{essentials.logs, essentials.rndWnd, font, "Go back", WhiteColor, SDL_Rect{ GameWindowWidth - BUTTON_W, SQR_SIZE, BUTTON_W, SQR_SIZE}, GreenColor}
 {
 	
 }

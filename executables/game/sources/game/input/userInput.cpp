@@ -3,7 +3,7 @@
 #include <cassert>
 
 UserInput::UserInput():
-	keysStates{false, false, false, false},
+	keysStates( Key::InputMax, false ),
 	escapeState{false},
 	closeWindow{false},
 	leftMouseButton{false},
@@ -72,7 +72,7 @@ void UserInput::updateEvents(const KeycodesInfos& keycodesInfos)
 
 void UserInput::updateKeyboard(SDL_Keycode& keycode, bool valueToSet, const KeycodesInfos& keycodesInfos)
 {
-	for( std::size_t i{0} ; i < KEY::INP_MAX ; ++i )
+	for( std::size_t i{0} ; i < Key::InputMax ; ++i )
 	{
 		if( keycode == keycodesInfos.keycodes[i] )
 		{

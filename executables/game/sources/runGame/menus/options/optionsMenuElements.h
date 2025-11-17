@@ -6,16 +6,17 @@
 #include "text/sdl2ttf_font.h"
 #include "runGame/menus/keycodesInfos.h"
 #include "game/input/inputsConsts.h"
+#include <array>
 
 struct Essentials;
 
 struct OptionsMenuElements
 {
 	KeycodesInfos keycodesData;
-	const sdl2::Font arial;
-	const std::array< const TextureCombo, KEY::INP_MAX > functionsNames;
-	std::array< HighLightButton, KEY::INP_MAX > keycodesBtn;
-	const TextureCombo pressANewKey;
+	sdl2::Font font;
+	std::array< TextureCombo, Key::InputMax > functionsNames;
+	std::array< HighLightButton, Key::InputMax > keycodesBtn;
+	TextureCombo pressANewKey;
 
 	explicit OptionsMenuElements(Essentials& essentials);
 	~OptionsMenuElements() = default;

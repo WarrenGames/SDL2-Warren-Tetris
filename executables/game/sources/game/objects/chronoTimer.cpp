@@ -6,11 +6,11 @@
 #include "game/consts/fontsSizes.h"
 
 ChronoTimer::ChronoTimer(Essentials& essentials):
-	arial{essentials.logs.error, GameFontPath, FontMediumSize},
+	font{essentials.logs.error, GameFontPath, FontMediumSize},
 	chrono{},
 	elapsedMinutes{0},
 	elapsedSeconds{0},
-	chronoGraphicalText{essentials.logs, essentials.rndWnd, arial, getText(), WhiteColor, TexturePosition{GameWindowWidth / 2 + SQR_SIZE, SQR_SIZE * 8, false, true} },
+	chronoGraphicalText{essentials.logs, essentials.rndWnd, font, getText(), WhiteColor, TexturePosition{GameWindowWidth / 2 + SQR_SIZE, SQR_SIZE * 8, false, true} },
 	doesTextNeedChange{false}
 {
 	
@@ -25,7 +25,7 @@ void ChronoTimer::changeGraphicalTextIfNeeded(Essentials& essentials)
 {
 	if( doesTextNeedChange )
 	{
-		chronoGraphicalText.texture.loadBlendedText(essentials.logs, essentials.rndWnd, arial, getText(), WhiteColor);
+		chronoGraphicalText.texture.loadBlendedText(essentials.logs, essentials.rndWnd, font, getText(), WhiteColor);
 		chronoGraphicalText.resetSpritePosition(TexturePosition{GameWindowWidth/2+SQR_SIZE, SQR_SIZE*8, false, true} );
 		doesTextNeedChange = false;
 	}

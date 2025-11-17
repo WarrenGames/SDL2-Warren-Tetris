@@ -21,6 +21,8 @@ public:
 	~ScoresData() = default;
 	ScoresData( const ScoresData& ) = delete;
 	ScoresData& operator= ( const ScoresData& ) = delete;
+	ScoresData( ScoresData&& ) = default;
+	ScoresData& operator= ( ScoresData&& ) = default;
 	
 	void loadScoreFile(Essentials& essentials, const std::string& scoreFilePath, unsigned skill);
 	

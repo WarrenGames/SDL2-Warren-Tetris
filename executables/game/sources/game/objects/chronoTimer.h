@@ -11,7 +11,7 @@ struct Essentials;
 class ChronoTimer
 {
 private:
-	const sdl2::Font arial;
+	sdl2::Font font;
 	AccurateTimeDelay chrono;
 	unsigned elapsedMinutes;
 	unsigned elapsedSeconds;
@@ -23,6 +23,8 @@ public:
 	~ChronoTimer() = default;
 	ChronoTimer( const ChronoTimer& ) = delete;
 	ChronoTimer& operator= ( const ChronoTimer& ) = delete;
+	ChronoTimer( ChronoTimer&& ) = default;
+	ChronoTimer& operator= ( ChronoTimer&& ) = default;
 	
 	std::string getText() const;
 	void changeGraphicalTextIfNeeded(Essentials& essentials);

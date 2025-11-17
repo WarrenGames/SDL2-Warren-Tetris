@@ -7,39 +7,35 @@
 #include "game/consts/sdlColors.h"
 #include <cassert>
 
-constexpr int HL_BTN_W = 8 * SQR_SIZE;
-constexpr int HL_BTN_H = SQR_SIZE*2;
-constexpr int HL_BTN_X = GameWindowWidth / 2 - HL_BTN_W / 2;
+constexpr int HighlightBtnW = 8 * SQR_SIZE;
+constexpr int HighlightBtnH = SQR_SIZE * 2;
+constexpr int HighlightBtnX = GameWindowWidth / 2 - HighlightBtnW / 2;
 
-constexpr char MOVE_LEFT_STR[] = "Move piece to left: ";
-constexpr char MOVE_RIGHT_STR[] = "Move piece to right: ";
-constexpr char MOVE_DOWNER_STR[] = "Move piece to downer: ";
-constexpr char CLOCKWISE_ROT[] = "Clockwise piece rotation: ";
-constexpr char ANTI_CLOCKWISE_ROT[] = "Anticlockwise piece rotation: ";
+constexpr char MoveLeftStr[] = "Move piece to left: ";
+constexpr char MoveRightStr[] = "Move piece to right: ";
+constexpr char MoveDownerStr[] = "Move piece to downer: ";
+constexpr char ClockwiseRotStr[] = "Clockwise piece rotation: ";
+constexpr char AntiClockwiseRotStr[] = "Anticlockwise piece rotation: ";
 
 mainMenu::Elements::Elements(Essentials& essentials):
-	arial{essentials.logs.error, GameFontPath, 20},
-	title{essentials.logs, essentials.rndWnd, arial, "Tetris of the warren", WhiteColor, TexturePosition{GameWindowWidth/2, SQR_SIZE, true, true} },
+	font{essentials.logs.error, GameFontPath, 20},
+	title{essentials.logs, essentials.rndWnd, font, "Tetris of the warren", WhiteColor, TexturePosition{GameWindowWidth/2, SQR_SIZE, true, true} },
 	skillButtons{
-		HighLightButton{essentials.logs, essentials.rndWnd, arial, "Easy", WhiteColor, 		SDL_Rect{ HL_BTN_X, SQR_SIZE * 4, HL_BTN_W, HL_BTN_H}, OrangeColor},
-		HighLightButton{essentials.logs, essentials.rndWnd, arial, "Intermediate", WhiteColor, SDL_Rect{ HL_BTN_X, SQR_SIZE * 7, HL_BTN_W, HL_BTN_H}, OrangeColor},
-		HighLightButton{essentials.logs, essentials.rndWnd, arial, "Hard", WhiteColor, 		SDL_Rect{ HL_BTN_X, SQR_SIZE * 10, HL_BTN_W, HL_BTN_H}, OrangeColor}
+		HighLightButton{essentials.logs, essentials.rndWnd, font, "Easy", WhiteColor, SDL_Rect{ HighlightBtnX, SQR_SIZE * 4, HighlightBtnW, HighlightBtnH}, OrangeColor},
+		HighLightButton{essentials.logs, essentials.rndWnd, font, "Intermediate", WhiteColor, SDL_Rect{ HighlightBtnX, SQR_SIZE * 7, HighlightBtnW, HighlightBtnH}, OrangeColor},
+		HighLightButton{essentials.logs, essentials.rndWnd, font, "Hard", WhiteColor, SDL_Rect{ HighlightBtnX, SQR_SIZE * 10, HighlightBtnW, HighlightBtnH}, OrangeColor}
 	},
-	customGame{essentials.logs, essentials.rndWnd, arial, "Custom game", WhiteColor, SDL_Rect{HL_BTN_X, SQR_SIZE * 13, HL_BTN_W, HL_BTN_H}, OrangeColor},
-	optionsButton{essentials.logs, essentials.rndWnd, arial, "Options", WhiteColor, SDL_Rect{ HL_BTN_X, SQR_SIZE * 16, HL_BTN_W, HL_BTN_H}, OrangeColor},
-	keycodesStrings{
-		std::string{MOVE_LEFT_STR},
-		std::string{MOVE_RIGHT_STR},
-		std::string{MOVE_DOWNER_STR},
-		std::string{CLOCKWISE_ROT},
-		std::string{ANTI_CLOCKWISE_ROT}
-	}
+	customGame{essentials.logs, essentials.rndWnd, font, "Custom game", WhiteColor, SDL_Rect{HighlightBtnX, SQR_SIZE * 13, HighlightBtnW, HighlightBtnH}, OrangeColor},
+	optionsButton{essentials.logs, essentials.rndWnd, font, "Options", WhiteColor, SDL_Rect{ HighlightBtnX, SQR_SIZE * 16, HighlightBtnW, HighlightBtnH}, OrangeColor},
+	keycodesStrings{ MoveLeftStr, MoveRightStr, MoveDownerStr, ClockwiseRotStr, AntiClockwiseRotStr },
+	backgroundWallpaper{ essentials.logs, essentials.rndWnd, MainMenuWallpaperPath }
 {
 	resetKeycodesInfos(essentials);
 }
 
 void mainMenu::Elements::drawEverything(Essentials& essentials) const
 {
+	backgroundWallpaper.draw(essentials.rndWnd);
 	title.draw(essentials.rndWnd);
 	drawButtons(essentials);
 	drawInputsTexts(essentials);
@@ -80,14 +76,14 @@ void mainMenu::Elements::drawInputsTexts(Essentials& essentials) const
 void mainMenu::Elements::resetKeycodesInfos(Essentials& essentials)
 {
 	KeycodesInfos keycodesInfos{essentials.logs, essentials.prefPath};
-	for( std::size_t keycode{0} ; keycode < KEY::INP_MAX ; ++keycode )
+	for( std::size_t keycode{0} ; keycode < Key::InputMax ; ++keycode )
 	{
 		if( SDLK_UNKNOWN == keycodesInfos.keycodes[keycode] )
 		{
-			inputsTexts[keycode].texture.loadBlendedText(essentials.logs, essentials.rndWnd, arial, keycodesStrings[keycode] + "not assigned", WhiteColor);
+			inputsTexts[keycode].texture.loadBlendedText(essentials.logs, essentials.rndWnd, font, keycodesStrings[keycode] + "not assigned", WhiteColor);
 		}
 		else{
-			inputsTexts[keycode].texture.loadBlendedText(essentials.logs, essentials.rndWnd, arial, keycodesStrings[keycode] + SDL_GetKeyName(keycodesInfos.keycodes[keycode]), WhiteColor);
+			inputsTexts[keycode].texture.loadBlendedText(essentials.logs, essentials.rndWnd, font, keycodesStrings[keycode] + SDL_GetKeyName(keycodesInfos.keycodes[keycode]), WhiteColor);
 		}
 		inputsTexts[keycode].resetSpritePosition( TexturePosition{SQR_SIZE, GameWindowHeight - SQR_SIZE * 5 + SQR_SIZE * static_cast<int>(keycode), false, true} );
 	}

@@ -7,13 +7,13 @@
 #include <algorithm>
 #include <fstream>
 
-ScoresGraphics::ScoresGraphics(Essentials& essentials, const sdl2::Font& arial, const ScoresData& data):
-	title{essentials.logs, essentials.rndWnd, arial, "Best scores", WhiteColor, TexturePosition{ GameWindowWidth / 2, SQR_SIZE, true, true} }
+ScoresGraphics::ScoresGraphics(Essentials& essentials, const sdl2::Font& font, const ScoresData& data):
+	title{essentials.logs, essentials.rndWnd, font, "Best scores", WhiteColor, TexturePosition{ GameWindowWidth / 2, SQR_SIZE, true, true} }
 {	
-	createTexts(essentials, arial, data);
-	addSkillText(essentials, arial, "Easy", SkillEasyGame);
-	addSkillText(essentials, arial, "Intermediate", SkillIntermediateGame);
-	addSkillText(essentials, arial, "Hard", SkillHardGame);
+	createTexts(essentials, font, data);
+	addSkillText(essentials, font, "Easy", SkillEasyGame);
+	addSkillText(essentials, font, "Intermediate", SkillIntermediateGame);
+	addSkillText(essentials, font, "Hard", SkillHardGame);
 }
 
 void ScoresGraphics::drawTexts(Essentials& essentials) const
@@ -42,13 +42,13 @@ void ScoresGraphics::drawScores(Essentials& essentials) const
 	}
 }
 
-void ScoresGraphics::createTexts(Essentials& essentials, const sdl2::Font& arial, const ScoresData& data)
+void ScoresGraphics::createTexts(Essentials& essentials, const sdl2::Font& font, const ScoresData& data)
 {
 	for( std::size_t skill{0} ; skill < SkillGameMax ; ++skill )
 	{
 		for( std::size_t scoreNum{0} ; scoreNum < SCORE_NUM_PER_SKILL ; ++scoreNum )
 		{
-			scoresTexts[skill].emplace_back( TextureCombo{essentials.logs, essentials.rndWnd, arial, 
+			scoresTexts[skill].emplace_back( TextureCombo{essentials.logs, essentials.rndWnd, font, 
 												std::to_string(data.getScore(skill, scoreNum) ), getColor( data.isScoreFromRecentGame(skill, scoreNum) ), 
 												TexturePosition{SQR_SIZE * 4, static_cast<int>(skill) * SQR_SIZE * 6 + static_cast<int>(scoreNum) * SQR_SIZE + SQR_SIZE * 4, false, true} } );
 		}
@@ -63,8 +63,8 @@ SDL_Color ScoresGraphics::getColor(bool isCurrentGame) const
 		return WhiteColor;
 }
 
-void ScoresGraphics::addSkillText(Essentials& essentials, const sdl2::Font& arial, const std::string& text, int skillNum)
+void ScoresGraphics::addSkillText(Essentials& essentials, const sdl2::Font& font, const std::string& text, int skillNum)
 {
 	assert( skillNum < SkillGameMax );
-	skillText.emplace_back(TextureCombo{essentials.logs, essentials.rndWnd, arial, text, WhiteColor, TexturePosition{SQR_SIZE, skillNum * SQR_SIZE * 6 + SQR_SIZE * 3, false, true} } );
+	skillText.emplace_back(TextureCombo{essentials.logs, essentials.rndWnd, font, text, WhiteColor, TexturePosition{SQR_SIZE, skillNum * SQR_SIZE * 6 + SQR_SIZE * 3, false, true} } );
 }

@@ -9,6 +9,11 @@ struct SquareData
 	bool filled;
 	
 	SquareData();
+	~SquareData() = default;
+	SquareData( const SquareData& ) = default;
+	SquareData& operator= ( const SquareData& ) = default;
+	SquareData( SquareData&& ) = default;
+	SquareData& operator= ( SquareData&& ) = default;
 };
 
 #endif //SQUARE_DATA_STRUCT_H

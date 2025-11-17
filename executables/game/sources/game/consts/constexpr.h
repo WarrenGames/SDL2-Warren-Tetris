@@ -30,4 +30,6 @@ constexpr char GameName[] = "SDL2 Tetris";
 constexpr char ErrorLogFileName[] = "errorLog.txt";
 constexpr char WarningLogFileName[] = "warningLog.txt";
 
+constexpr char MainMenuWallpaperPath[] = "textures/wallpapers/piecesCorner.png";
+
 #endif //CONSTEXPR_H

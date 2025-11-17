@@ -12,7 +12,7 @@ class PlayerScore
 private:
 	bool canUpdateScore;
 	unsigned score;
-	const sdl2::Font arial;
+	sdl2::Font font;
 	TextureCombo scoreTexture;
 	
 public:
@@ -20,6 +20,8 @@ public:
 	~PlayerScore() = default;
 	PlayerScore( const PlayerScore& ) = delete;
 	PlayerScore& operator= ( const PlayerScore& ) = delete;
+	PlayerScore( PlayerScore&& ) = default;
+	PlayerScore& operator= ( PlayerScore&& ) = default;
 	
 	void updateScoreText(AppLogFiles& logs, sdl2::RendererWindow& rndWnd);
 	void addToScore(unsigned toAdd);

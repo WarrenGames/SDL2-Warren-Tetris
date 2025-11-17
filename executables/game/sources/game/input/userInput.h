@@ -4,14 +4,14 @@
 #include "game/input/inputsConsts.h"
 #include "customTypes/positionTypes.h"
 #include "SDL.h"
-#include <array>
+#include <vector>
 
 struct KeycodesInfos;
 
 class UserInput
 {
 private:
-	std::array<bool, KEY::INP_MAX> keysStates;
+	std::vector< bool > keysStates;
 	bool escapeState;
 	bool closeWindow;
 	bool leftMouseButton;

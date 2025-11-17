@@ -7,9 +7,9 @@
 #include "game/consts/fontsSizes.h"
 
 SpeedInterface::SpeedInterface(Essentials& essentials, const TimeOptions& timeOptions):
-	arial{essentials.logs.error, GameFontPath, FontMediumSize},
+	font{essentials.logs.error, GameFontPath, FontMediumSize},
 	speed{timeOptions.fallDelay}, 
-	speedText{essentials.logs, essentials.rndWnd, arial, "Speed: " + std::to_string( 1 / timeOptions.fallDelay ), WhiteColor, TexturePosition{GameWindowWidth / 2 + SQR_SIZE, SQR_SIZE * 10, false, true} }
+	speedText{essentials.logs, essentials.rndWnd, font, "Speed: " + std::to_string( 1 / timeOptions.fallDelay ), WhiteColor, TexturePosition{GameWindowWidth / 2 + SQR_SIZE, SQR_SIZE * 10, false, true} }
 {
 	
 }
@@ -19,7 +19,7 @@ void SpeedInterface::resetText(Essentials& essentials, const TimeOptions& timeOp
 	if( timeOptions.fallDelay != speed )
 	{
 		speed = timeOptions.fallDelay;
-		speedText.texture.loadBlendedText(essentials.logs, essentials.rndWnd, arial, "Speed: " + std::to_string(1 / speed), WhiteColor);
+		speedText.texture.loadBlendedText(essentials.logs, essentials.rndWnd, font, "Speed: " + std::to_string(1 / speed), WhiteColor);
 		speedText.resetSpritePosition( TexturePosition{GameWindowWidth / 2 + SQR_SIZE, SQR_SIZE * 10, false, true } );
 	}
 }

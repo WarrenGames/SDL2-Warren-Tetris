@@ -3,7 +3,7 @@
 
 #include "game/input/inputsConsts.h"
 #include "SDL.h"
-#include <array>
+#include <vector>
 #include <string>
 
 struct AppLogFiles;
@@ -11,7 +11,7 @@ class PrefPathFinder;
 
 struct KeycodesInfos
 {
-	std::array< SDL_Keycode, KEY::INP_MAX > keycodes;
+	std::vector< SDL_Keycode > keycodes;
 
 	explicit KeycodesInfos(AppLogFiles& logs, const PrefPathFinder& prefPath);
 	~KeycodesInfos() = default;
