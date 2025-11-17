@@ -20,6 +20,15 @@ add_subdirectory(executables/game)
 add_subdirectory(libraries/genericLib)
 add_subdirectory(libraries/sdl2_wrapper)
 
+set_target_properties(	
+	game genericLib
+	PROPERTIES 
+	CXX_STANDARD 17
+	CXX_STANDARD_REQUIRED YES 
+	CXX_EXTENSIONS ON 
+	LINKER_LANGUAGE CXX
+)
+
 if(UNIX)
 	include(GNUInstallDirs)
 	install( 
